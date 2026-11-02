@@ -1,37 +1,7 @@
 {
-  "globalTheme": {
-    "colors": {
-      "--color-navy-50": "#f3f7fc",
-      "--color-navy-100": "#e7eff9",
-      "--color-navy-200": "#cfdff2",
-      "--color-navy-700": "#0a4287",
-      "--color-navy-800": "#082a54",
-      "--color-navy-900": "#071f37",
-      "--color-navy-950": "#051729",
-      "--color-navy": "#043468",
-      "--color-brand-50": "#fff4f1",
-      "--color-brand-100": "#fde4de",
-      "--color-brand-400": "#e8603f",
-      "--color-brand-500": "#e05438",
-      "--color-brand-600": "#dc3a1f",
-      "--color-brand-700": "#c8401c",
-      "--color-brand": "#dc3a1f",
-      "--color-page": "#fcfdff",
-      "--color-frame": "#ececec",
-      "--color-slate2": "#1f4264",
-      "--color-mute": "#6b7384"
-    },
-    "shadows": {
-      "--shadow-soft": "0 10px 40px -12px rgba(4, 52, 104, 0.18)",
-      "--shadow-card": "0 6px 28px -8px rgba(4, 52, 104, 0.14)",
-      "--shadow-glow": "0 12px 30px -10px rgba(220, 58, 31, 0.55)"
-    },
-    "fonts": {
-      "stylesheet": "https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap",
-      "--family-title": "\"Manrope\", system-ui, sans-serif",
-      "--family-body": "\"Inter\", system-ui, sans-serif"
-    },
-    "globalCss": "html { -webkit-text-size-adjust: 100%; }\nbody { overflow-x: hidden; background-color: #ffffff; font-family: var(--family-body); font-size: 15px; line-height: 1.625; color: var(--color-navy-900); -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }\nh1, h2, h3, h4, h5, h6, [class*='--family-title'] { font-family: var(--family-title); }\n::selection { background: #dc3a1f; color: #fff; }\n:focus-visible { outline: 2px solid #dc3a1f; outline-offset: 2px; }\nimg { -webkit-user-drag: none; }\n@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }\n@keyframes plane-fly { 0%, 100% { transform: translate(0, 0) rotate(0deg); } 50% { transform: translate(8px, -6px) rotate(3deg); } }\n@keyframes ring-pulse { 0% { box-shadow: 0 0 0 0 rgba(220,58,31,0.45); } 70% { box-shadow: 0 0 0 16px rgba(220,58,31,0); } 100% { box-shadow: 0 0 0 0 rgba(220,58,31,0); } }\n@keyframes shimmer { 100% { transform: translateX(100%); } }"
+  "theme": {
+    "bodyBgColor": "#fdfcf9",
+    "bodyBgClass": "bg-[#fdfcf9]"
   },
   "Meridian": {
     "templateComponents": {
@@ -43,67 +13,142 @@
         "pages": {
           "home": {
             "components": [
-              { "key": "Hero", "component": "MeridianHomeHero1" },
-              { "key": "About", "component": "MeridianAbout1" },
-              { "key": "Services", "component": "MeridianHomeServices1" },
-              { "key": "Process", "component": "MeridianProcess1" },
-              { "key": "Testimonials", "component": "MeridianTestimonials1" },
-              { "key": "Cta", "component": "MeridianCta1" }
+              {
+                "key": "Hero",
+                "component": "MeridianHomeHero1"
+              },
+              {
+                "key": "About",
+                "component": "MeridianAbout1"
+              },
+              {
+                "key": "Services",
+                "component": "MeridianHomeServices1"
+              },
+              {
+                "key": "Process",
+                "component": "MeridianProcess1"
+              },
+              {
+                "key": "Testimonials",
+                "component": "MeridianTestimonials1"
+              },
+              {
+                "key": "Cta",
+                "component": "MeridianCta1"
+              }
             ]
           },
           "about": {
             "components": [
-              { "key": "Hero", "component": "MeridianAboutHero1" },
-              { "key": "About", "component": "MeridianAbout1" },
-              { "key": "Testimonials", "component": "MeridianTestimonials1" }
+              {
+                "key": "Hero",
+                "component": "MeridianAboutHero1"
+              },
+              {
+                "key": "About",
+                "component": "MeridianAbout1"
+              },
+              {
+                "key": "Testimonials",
+                "component": "MeridianTestimonials1"
+              }
             ]
           },
           "services": {
             "components": [
-              { "key": "Hero", "component": "MeridianServicesHero1" },
-              { "key": "ServicesPage", "component": "MeridianServicesPage1" }
+              {
+                "key": "Hero",
+                "component": "MeridianServicesHero1"
+              },
+              {
+                "key": "ServicesPage",
+                "component": "MeridianServicesPage1"
+              }
             ]
           },
           "servicesDetails": {
             "components": [
-              { "key": "Hero", "component": "MeridianServicesDetailHero1" },
-              { "key": "ServiceDetail", "component": "MeridianServiceDetail1" }
+              {
+                "key": "Hero",
+                "component": "MeridianServicesDetailHero1"
+              },
+              {
+                "key": "ServiceDetail",
+                "component": "MeridianServiceDetail1"
+              }
             ]
           },
           "visaPassport": {
             "components": [
-              { "key": "Hero", "component": "MeridianVisaHero1" },
-              { "key": "VisaPassport", "component": "MeridianVisaPassport1" }
+              {
+                "key": "Hero",
+                "component": "MeridianVisaHero1"
+              },
+              {
+                "key": "VisaPassport",
+                "component": "MeridianVisaPassport1"
+              }
             ]
           },
           "blog": {
             "components": [
-              { "key": "Hero", "component": "MeridianBlogHero1" },
-              { "key": "News", "component": "MeridianNews1" }
+              {
+                "key": "Hero",
+                "component": "MeridianBlogHero1"
+              },
+              {
+                "key": "News",
+                "component": "MeridianNews1"
+              }
             ]
           },
           "blogDetails": {
             "components": [
-              { "key": "Hero", "component": "MeridianBlogDetailHero1" },
-              { "key": "News", "component": "MeridianNews1" }
+              {
+                "key": "Hero",
+                "component": "MeridianBlogDetailHero1"
+              },
+              {
+                "key": "News",
+                "component": "MeridianNews1"
+              }
             ]
           },
           "contact": {
             "components": [
-              { "key": "Hero", "component": "MeridianContactHero1" },
-              { "key": "ContactPage", "component": "MeridianContactPage1" }
+              {
+                "key": "Hero",
+                "component": "MeridianContactHero1"
+              },
+              {
+                "key": "ContactPage",
+                "component": "MeridianContactPage1"
+              }
             ]
           },
           "privacyPolicy": {
             "components": [
-              { "key": "Hero", "component": "MeridianPrivacyHero1" },
-              { "key": "Legal", "component": "MeridianPrivacy1" }
+              {
+                "key": "Hero",
+                "component": "MeridianPrivacyHero1"
+              },
+              {
+                "key": "Legal",
+                "component": "MeridianPrivacy1"
+              }
             ]
           },
           "terms": {
             "components": [
-              { "key": "Hero", "component": "MeridianTermsHero1" },
-              { "key": "Legal", "component": "MeridianTerms1" }
+              {
+                "key": "Hero",
+                "component": "MeridianTermsHero1"
+              },
+              {
+                "key": "Legal",
+                "component": "MeridianTerms1"
+              }
             ]
           }
         }
@@ -113,25 +158,67 @@
       "SiteChrome": {
         "variants": {
           "MeridianHeader1": {
-            "brand": { "name": "The Meridian", "tagline": "Your trusted partner for embassy and consulate services worldwide." },
+            "brand": {
+              "name": "Diplomatica Embassies",
+              "tagline": "Explore · Connect · Represent. Your trusted partner for embassy, visa and consulate services worldwide."
+            },
             "nav": [
-              { "label": "Home", "href": "/" },
-              { "label": "About Us", "href": "/about" },
-              { "label": "Counselling Services", "href": "/services" },
-              { "label": "Visa & Passport Information", "href": "/visa-passport" },
-              { "label": "News & Events", "href": "/news-events" }
+              {
+                "label": "Home",
+                "href": "/"
+              },
+              {
+                "label": "About Us",
+                "href": "/about"
+              },
+              {
+                "label": "Diplomatica Services",
+                "href": "/services"
+              },
+              {
+                "label": "Visa Desk",
+                "href": "/visa-passport"
+              },
+              {
+                "label": "News & Events",
+                "href": "/news-events"
+              }
             ],
-            "cta": { "label": "Contact Us", "href": "/contact" }
+            "cta": {
+              "label": "Book a Consultation",
+              "href": "/contact"
+            }
           },
           "MeridianFooter1": {
-            "brand": { "name": "The Meridian", "tagline": "Your trusted partner for embassy and consulate services worldwide." },
+            "brand": {
+              "name": "Diplomatica Embassies",
+              "tagline": "Explore · Connect · Represent. Your trusted partner for embassy, visa and consulate services worldwide."
+            },
             "quickLinks": [
-              { "label": "Home", "href": "/" },
-              { "label": "About Us", "href": "/about" },
-              { "label": "Counselling Services", "href": "/services" },
-              { "label": "Visa & Passport Information", "href": "/visa-passport" },
-              { "label": "News & Events", "href": "/news-events" },
-              { "label": "Contact Us", "href": "/contact" }
+              {
+                "label": "Home",
+                "href": "/"
+              },
+              {
+                "label": "About Us",
+                "href": "/about"
+              },
+              {
+                "label": "Diplomatica Services",
+                "href": "/services"
+              },
+              {
+                "label": "Visa Desk",
+                "href": "/visa-passport"
+              },
+              {
+                "label": "News & Events",
+                "href": "/news-events"
+              },
+              {
+                "label": "Contact Us",
+                "href": "/contact"
+              }
             ],
             "contact": {
               "phone": "+1 00000 00000",
@@ -146,53 +233,121 @@
               "ctaPhoneHref": "tel:+10000000000"
             },
             "social": [
-              { "name": "Facebook", "href": "https://www.facebook.com/" },
-              { "name": "Instagram", "href": "https://www.instagram.com/" },
-              { "name": "LinkedIn", "href": "https://www.linkedin.com/" }
+              {
+                "name": "Facebook",
+                "href": "https://www.facebook.com/"
+              },
+              {
+                "name": "Instagram",
+                "href": "https://www.instagram.com/"
+              },
+              {
+                "name": "LinkedIn",
+                "href": "https://www.linkedin.com/"
+              }
             ],
             "legal": [
-              { "label": "Privacy Policy", "href": "/privacy-policy" },
-              { "label": "Terms of Service", "href": "/terms" }
+              {
+                "label": "Privacy Policy",
+                "href": "/privacy-policy"
+              },
+              {
+                "label": "Terms of Service",
+                "href": "/terms"
+              }
             ]
           }
         }
       },
       "Hero": {
         "variants": {
-          "MeridianHomeHero1": { "titleLine1": "Immigration & Visa", "titleAccent": "Consultancy", "button": { "label": "Explore Our Services", "href": "/services" } },
-          "MeridianAboutHero1": { "title": "About Us" },
-          "MeridianServicesHero1": { "title": "Counselling Services" },
-          "MeridianServicesDetailHero1": { "title": "Service Details" },
-          "MeridianVisaHero1": { "title": "Visa & Passport Information" },
-          "MeridianBlogHero1": { "title": "News & Events" },
-          "MeridianBlogDetailHero1": { "title": "News & Events" },
-          "MeridianContactHero1": { "title": "Contact Us" },
-          "MeridianPrivacyHero1": { "title": "Privacy Policy" },
-          "MeridianTermsHero1": { "title": "Terms of Service" }
+          "MeridianHomeHero1": {
+            "titleLine1": "Embassy & Visa",
+            "titleAccent": "Experts",
+            "eyebrow": "Explore · Connect · Represent",
+            "text": "Diplomatica Embassies guides individuals, families, students and professionals through every embassy, consulate and visa step, with clarity, care and diplomatica precision.",
+            "button": {
+              "label": "Explore Diplomatica Services",
+              "href": "/services"
+            },
+            "secondaryButton": {
+              "label": "Talk to an Expert",
+              "href": "/contact"
+            },
+            "highlights": [
+              "25+ Years of Experience",
+              "End-to-End Support",
+              "Replies within 24 Hours"
+            ]
+          },
+          "MeridianAboutHero1": {
+            "title": "Our Mission"
+          },
+          "MeridianServicesHero1": {
+            "title": "Consular Services"
+          },
+          "MeridianServicesDetailHero1": {
+            "title": "Service Details"
+          },
+          "MeridianVisaHero1": {
+            "title": "Visa Desk"
+          },
+          "MeridianBlogHero1": {
+            "title": "Press Room"
+          },
+          "MeridianBlogDetailHero1": {
+            "title": "Press Room"
+          },
+          "MeridianContactHero1": {
+            "title": "Contact Us"
+          },
+          "MeridianPrivacyHero1": {
+            "title": "Privacy Policy"
+          },
+          "MeridianTermsHero1": {
+            "title": "Terms of Service"
+          }
         }
       },
       "About": {
         "variants": {
           "MeridianAbout1": {
-            "eyebrow": "About Us",
-            "title": "An Expert Advisory",
-            "titleLine2": "for Your",
-            "titleAccent": "Global Journey",
-            "text": "We help individuals, families, students and professionals turn their global aspirations into reality. From application guidance and document preparation to embassy support, we provide end-to-end assistance with clarity, care and expertise.",
+            "eyebrow": "About Diplomatica",
+            "title": "Your Bridge to",
+            "titleLine2": "Embassies &",
+            "titleAccent": "Consulates",
+            "text": "Embassy, visa and consular support with clarity and care.",
             "statValue": 25,
             "statSuffix": "+",
-            "statLabel": "Years of experience in visa and immigration consultancy"
+            "statLabel": "Years of experience in embassy, visa and consular advisory",
+            "pillars": [
+              {
+                "title": "Explore",
+                "text": "Find the right visa route and timeline."
+              },
+              {
+                "title": "Connect",
+                "text": "We liaise with embassies and consulates for you."
+              },
+              {
+                "title": "Represent",
+                "text": "Your case, presented with precision and protocol."
+              }
+            ]
           }
         }
       },
       "Services": {
         "variants": {
           "MeridianHomeServices1": {
-            "eyebrow": "Our Services",
-            "title": "Complete Immigration",
-            "titleAccent": "Support Services",
-            "text": "We provide end-to-end immigration support to help individuals, families and professionals achieve their global goals with expert guidance and personalized solutions.",
-            "button": { "label": "View All Services", "href": "/services" }
+            "eyebrow": "Our Diplomatica Services",
+            "title": "Complete Embassy &",
+            "titleAccent": "Consular Support",
+            "text": "From embassy appointments to document legalisation, we represent your application with precision, protocol and care, so every step is handled the way a diplomat would.",
+            "button": {
+              "label": "View All Services",
+              "href": "/services"
+            }
           }
         }
       },
@@ -201,14 +356,42 @@
           "MeridianProcess1": {
             "section": {
               "eyebrow": "Our Process",
-              "title": "Your Visa Journey in Just",
+              "title": "Your Embassy Journey in Just",
               "titleAccent": "4 Simple Steps"
             },
             "steps": [
-              { "id": 1, "number": "01", "title": "Fill Out the Enquiry Form", "text": "Share your basic details with us through a simple online form. Our team will review your information and guide you for the next steps.", "image": "/img/step-1.webp", "alt": "Visa enquiry form on a laptop next to a passport" },
-              { "id": 2, "number": "02", "title": "Document Submission & Payment", "text": "Upload the required documents and complete the processing fees securely through our system.", "image": "/img/step-2.webp", "alt": "Passport being handed over across a desk" },
-              { "id": 3, "number": "03", "title": "Attend Your Interview", "text": "Visit the Embassy or Consulate on your scheduled date and time for the interview appointment.", "image": "/img/step-3.webp", "alt": "Visa officer smiling during an interview" },
-              { "id": 4, "number": "04", "title": "Receive Your Visa", "text": "Once approved, collect your passport with visa and get ready for your journey towards new opportunities.", "image": "/img/step-4.webp", "alt": "Passport with an approved visa stamp" }
+              {
+                "id": 1,
+                "number": "01",
+                "title": "Submit Your Enquiry",
+                "text": "Share your plans in a short form.",
+                "image": "/img/proc-main.webp",
+                "alt": "Online application form open on a laptop"
+              },
+              {
+                "id": 2,
+                "number": "02",
+                "title": "Documents & Verification",
+                "text": "We verify, attest and legalise your documents.",
+                "image": "/img/proc-main.webp",
+                "alt": "Hands signing documents at a desk"
+              },
+              {
+                "id": 3,
+                "number": "03",
+                "title": "Embassy Appointment & Interview",
+                "text": "We book your slot and prepare you.",
+                "image": "/img/proc-main.webp",
+                "alt": "Adviser and clients in a consultation"
+              },
+              {
+                "id": 4,
+                "number": "04",
+                "title": "Receive Your Visa",
+                "text": "Collect your passport with the visa.",
+                "image": "/img/proc-main.webp",
+                "alt": "Passports, visa stamps and a map"
+              }
             ]
           }
         }
@@ -217,15 +400,36 @@
         "variants": {
           "MeridianTestimonials1": {
             "section": {
-              "eyebrow": "What Our Clients Say",
-              "title": "Stories of",
-              "titleAccent": "Successful Journeys",
-              "text": "Real experiences from individuals and families who achieved their global dreams with our guidance and support."
+              "eyebrow": "Testimonials",
+              "title": "Client",
+              "titleAccent": "Stories",
+              "text": "Trusted by travellers, families and professionals."
             },
             "items": [
-              { "id": 1, "name": "Aditi Sharma", "role": "Canada Study Visa", "avatar": "/img/avatar-1.webp", "rating": 5, "quote": "The team at The Meridian guided me through every step of my Canada study visa process. From document preparation to the final approval, everything was handled professionally. I couldn’t have asked for a better experience. Highly recommended!" },
-              { "id": 2, "name": "Rohan Mehta", "role": "UK Student Visa", "avatar": "/img/avatar-2.webp", "rating": 5, "quote": "Choosing a university and understanding the visa paperwork felt overwhelming until I met the counsellors here. They were patient, clear and always available. My UK student visa was approved smoothly and on time." },
-              { "id": 3, "name": "Priya Nair", "role": "Australia Visitor Visa", "avatar": "/img/avatar-3.webp", "rating": 5, "quote": "We applied as a family and The Meridian made the whole process stress-free. Every document was checked twice and the interview preparation gave us real confidence. Thank you for making our trip possible!" }
+              {
+                "id": 1,
+                "name": "Aditi Sharma",
+                "role": "Canada Study Visa",
+                "avatar": "/img/avatar-1.webp",
+                "rating": 5,
+                "quote": "Diplomatica Embassies handled my embassy appointment, attestation and visa file with remarkable precision. Every document was checked twice and the approval came right on time. Highly recommended!"
+              },
+              {
+                "id": 2,
+                "name": "Rohan Mehta",
+                "role": "UK Student Visa",
+                "avatar": "/img/avatar-2.webp",
+                "rating": 5,
+                "quote": "I was overwhelmed by apostille and embassy requirements until I met the team here. They were patient, clear and always available. My UK visa was approved smoothly and on schedule."
+              },
+              {
+                "id": 3,
+                "name": "Priya Nair",
+                "role": "Australia Visitor Visa",
+                "avatar": "/img/avatar-3.webp",
+                "rating": 5,
+                "quote": "We applied as a family and Diplomatica made the whole embassy process stress-free. The interview preparation gave us real confidence. Thank you for making our trip possible!"
+              }
             ]
           }
         }
@@ -237,7 +441,7 @@
             "titleLine1": "Let’s plan your",
             "titleAccent": "global journey",
             "titleEnd": "together",
-            "text": "Have questions about visas, documentation or embassy requirements? Our team is here to help you at every step.",
+            "text": "Our diplomatica advisers are with you at every step.",
             "label": "Get in touch with our team"
           }
         }
@@ -246,23 +450,95 @@
         "variants": {
           "MeridianServicesPage1": {
             "highlights": [
-              { "id": 1, "icon": "graduation", "title": "Study Abroad Program Support", "text": "Guidance for university selection, application process and visa requirements.", "href": "/services-details" },
-              { "id": 2, "icon": "file-user", "title": "Visa Application Assistance", "text": "End-to-end support for tourist, student, work and business visa applications.", "href": "/services-details" },
-              { "id": 3, "icon": "signpost", "title": "Immigration Strategy and Planning", "text": "Expert advice on immigration pathways and residency options.", "href": "/services-details" },
-              { "id": 4, "icon": "users", "title": "Visa Consultation and Assessment", "text": "Personalized consultation to assess your profile and suggest the best options.", "href": "/services-details" }
+              {
+                "id": 1,
+                "icon": "building",
+                "title": "Embassy & Consulate Liaison",
+                "text": "We coordinate with embassies and consulates on your behalf, from enquiries to appointments.",
+                "href": "/services-details"
+              },
+              {
+                "id": 2,
+                "icon": "file-user",
+                "title": "Visa Application Assistance",
+                "text": "End-to-end support for tourist, student, work and business visa applications.",
+                "href": "/services-details"
+              },
+              {
+                "id": 3,
+                "icon": "file-check",
+                "title": "Document Attestation & Apostille",
+                "text": "Attestation, apostille and legalisation so your documents are accepted abroad.",
+                "href": "/services-details"
+              },
+              {
+                "id": 4,
+                "icon": "globe",
+                "title": "Passport & Consular Services",
+                "text": "Fresh passports, renewals and consular documentation handled without the guesswork.",
+                "href": "/services-details"
+              }
             ],
             "counselling": {
-              "eyebrow": "Our Counselling Services",
-              "title": "Expert Counselling for Your",
-              "titleAccent": "Global Journey",
-              "text": "From course selection to visa guidance, our expert counsellors provide personalized support at every step of your international journey.",
+              "eyebrow": "Our Diplomatica Services",
+              "title": "Representation You Can",
+              "titleAccent": "Rely On",
+              "text": "Our advisers combine consular knowledge with personal attention, guiding you through embassy requirements, documents and interviews from first enquiry to final approval.",
               "items": [
-                { "id": 1, "icon": "graduation", "title": "Study Abroad Counselling", "text": "Get expert guidance on course selection, top universities, and the best study destination for your future.", "image": "/img/counselling-1.webp", "side": "left", "href": "/services-details" },
-                { "id": 2, "icon": "file-check", "title": "Application Support", "text": "Complete assistance with university applications, SOP, LOR and all required documentation.", "image": "/img/counselling-2.webp", "side": "right", "href": "/services-details" },
-                { "id": 3, "icon": "globe", "title": "Visa Guidance", "text": "Step-by-step support for a smooth and successful student visa process with high approval rates.", "image": "/img/counselling-3.webp", "side": "left", "href": "/services-details" },
-                { "id": 4, "icon": "clipboard-user", "title": "Pre-Departure Briefing", "text": "Get ready for your new journey with detailed pre-departure sessions covering travel, stay, and lifestyle abroad.", "image": "/img/counselling-4.webp", "side": "right", "href": "/services-details" },
-                { "id": 5, "icon": "home", "title": "Accommodation Support", "text": "Guidance on finding safe, comfortable and budget-friendly accommodation options abroad.", "image": "/img/counselling-5.webp", "side": "left", "href": "/services-details" },
-                { "id": 6, "icon": "users", "title": "Ongoing Support", "text": "Our support continues even after you reach your destination, ensuring a smooth transition and a successful stay.", "image": "/img/counselling-6.webp", "side": "right", "href": "/services-details" }
+                {
+                  "id": 1,
+                  "icon": "building",
+                  "title": "Diplomatica & Official Representation",
+                  "text": "Direct liaison with foreign embassies, missions and consular authorities.",
+                  "image": "/img/tile-7.webp",
+                  "side": "left",
+                  "href": "/services-details"
+                },
+                {
+                  "id": 2,
+                  "icon": "file-check",
+                  "title": "Visa Application Support",
+                  "text": "Accurate forms and a complete, strong file.",
+                  "image": "/img/tile-2.webp",
+                  "side": "right",
+                  "href": "/services-details"
+                },
+                {
+                  "id": 3,
+                  "icon": "clipboard-list",
+                  "title": "Attestation & Apostille",
+                  "text": "Notary, apostille and embassy legalisation.",
+                  "image": "/img/tile-3.webp",
+                  "side": "left",
+                  "href": "/services-details"
+                },
+                {
+                  "id": 4,
+                  "icon": "globe",
+                  "title": "Passport & Consular Services",
+                  "text": "New passports, renewals and consular certificates.",
+                  "image": "/img/tile-4.webp",
+                  "side": "right",
+                  "href": "/services-details"
+                },
+                {
+                  "id": 5,
+                  "icon": "clipboard-user",
+                  "title": "Interview Preparation",
+                  "text": "Mock interviews for a calm, confident day.",
+                  "image": "/img/tile-5.webp",
+                  "side": "left",
+                  "href": "/services-details"
+                },
+                {
+                  "id": 6,
+                  "icon": "users",
+                  "title": "Travel & Relocation Advisory",
+                  "text": "Entry rules, residency and settling in abroad.",
+                  "image": "/img/tile-6.webp",
+                  "side": "right",
+                  "href": "/services-details"
+                }
               ]
             }
           }
@@ -273,61 +549,112 @@
           "MeridianServiceDetail1": {
             "about": {
               "eyebrow": "About This Service",
-              "title": "Expert Counselling",
-              "titleAccent": "Tailored to Your Goals",
-              "text": "Choosing the right country, university and course can be overwhelming. Our experienced counsellors provide personalized guidance based on your academic background, career goals and preferences. We help you make informed decisions for a successful and rewarding international education journey.",
+              "title": "Embassy & Visa Advisory",
+              "titleAccent": "Handled With Diplomacy",
+              "text": "Embassy rules differ by country and change often. Our advisers know the consular procedures, document standards and appointment systems, and prepare your case with the precision a diplomatica mission expects. You get a clear plan, a complete file and a single point of contact.",
               "image": "/img/detail-main.webp",
               "features": [
-                { "icon": "users", "label": "Personalized Guidance" },
-                { "icon": "building", "label": "University Shortlisting" },
-                { "icon": "file-check", "label": "Application Support" },
-                { "icon": "headset", "label": "End-to-End Support" }
+                {
+                  "icon": "users",
+                  "label": "Dedicated Adviser"
+                },
+                {
+                  "icon": "building",
+                  "label": "Embassy Liaison"
+                },
+                {
+                  "icon": "file-check",
+                  "label": "Document Verification"
+                },
+                {
+                  "icon": "headset",
+                  "label": "End-to-End Support"
+                }
               ]
             },
             "benefits": {
               "eyebrow": "Key Benefits",
-              "title": "Why Choose Our",
-              "titleAccent": "Counselling?",
-              "text": "We provide the right guidance, resources and support to help you make confident decisions for your study abroad journey.",
+              "title": "Why Choose",
+              "titleAccent": "Diplomatica?",
+              "text": "Protocol, precision and personal attention, so your application reaches the embassy in its strongest form.",
               "items": [
-                { "icon": "graduation", "title": "Right Course & Country", "text": "Get guidance to choose the best course and destination based on your interests, profile and career goals." },
-                { "icon": "file-user", "title": "University Shortlisting", "text": "Find the right universities that match your academic background, budget and preferences." },
-                { "icon": "users", "title": "Expert Counsellors", "text": "Get advice from experienced and certified education counsellors with deep industry knowledge." },
-                { "icon": "trending-up", "title": "Better Career Prospects", "text": "Make informed decisions for a brighter global career with the right guidance and planning." }
+                {
+                  "icon": "building",
+                  "title": "Consular Expertise",
+                  "text": "Up-to-date knowledge of embassy and consulate procedures across destinations."
+                },
+                {
+                  "icon": "file-user",
+                  "title": "Verified Documents",
+                  "text": "Every certificate checked, attested and legalised before it reaches the embassy."
+                },
+                {
+                  "icon": "users",
+                  "title": "Experienced Advisers",
+                  "text": "Advice from seasoned professionals who handle embassy cases every day."
+                },
+                {
+                  "icon": "trending-up",
+                  "title": "Stronger Applications",
+                  "text": "Complete, accurate files that reduce delays and avoidable rejections."
+                }
               ]
             },
             "process": {
-              "eyebrow": "Our Counselling Process",
+              "eyebrow": "Our Process",
               "title": "How Our",
-              "titleAccent": "Counselling Works?",
+              "titleAccent": "Advisory Works?",
               "steps": [
-                { "number": "01", "icon": "message", "title": "Initial Consultation", "text": "Discuss your goals, interests and academic background with our experts." },
-                { "number": "02", "icon": "file-user", "title": "Course & University Shortlisting", "text": "Get expert recommendations tailored to your profile." },
-                { "number": "03", "icon": "clipboard-list", "title": "Application Guidance", "text": "Detailed counselling on admission requirements, SOP, LOR, visa process and more." },
-                { "number": "04", "icon": "headset", "title": "Ongoing Support", "text": "Continuous assistance till you reach your destination." }
+                {
+                  "number": "01",
+                  "icon": "message",
+                  "title": "Initial Consultation",
+                  "text": "Discuss your purpose of travel and your profile with an embassy expert."
+                },
+                {
+                  "number": "02",
+                  "icon": "file-user",
+                  "title": "Document Review",
+                  "text": "We review, attest and legalise every document you need."
+                },
+                {
+                  "number": "03",
+                  "icon": "clipboard-list",
+                  "title": "Appointment & Interview Prep",
+                  "text": "We book your slot and brief you on what the consular officer will ask."
+                },
+                {
+                  "number": "04",
+                  "icon": "headset",
+                  "title": "Follow-Up Support",
+                  "text": "We track your case and assist until your passport and visa are in hand."
+                }
               ]
             },
             "audience": {
               "eyebrow": "Who Is This Service For?",
               "title": "Guidance for Every",
-              "titleAccent": "Aspiring Student",
-              "text": "Our study abroad counselling is ideal for students who want expert support in choosing the right course, university and country, and need guidance throughout the admission and visa process.",
+              "titleAccent": "Global Traveller",
+              "text": "Our embassy advisory suits anyone who needs a visa, passport service or legalised documents and wants a precise, protocol-aware process.",
               "image": "/img/detail-student.webp",
               "points": [
-                "Students planning for undergraduate or postgraduate studies",
-                "Individuals seeking career-focused global education",
-                "Students looking for university shortlisting and admission support",
-                "Those who need guidance with visa and pre-departure preparation"
+                "Students and professionals applying for study or work visas",
+                "Families travelling or relocating abroad",
+                "Businesses sending staff on international assignments",
+                "Anyone needing attestation, apostille or consular documents"
               ]
             },
             "cta": {
               "eyebrow": "Ready to Start?",
-              "title": "Get Expert Counselling",
+              "title": "Get Expert Embassy Advice",
               "titleLine2": "for",
-              "titleAccent": "Your Study Abroad Journey",
-              "text": "Talk to our expert counsellors and take the first step towards a brighter global future.",
+              "titleAccent": "Your Next Journey",
+              "text": "Talk to our diplomatica advisers and take the first step towards a smooth, well-represented application.",
               "image": "/img/detail-cta.webp",
-              "button": { "label": "Book Free Counselling", "href": "/contact" }
+              "button": {
+                "label": "Book a Free Consultation",
+                "href": "/contact"
+              }
             }
           }
         }
@@ -336,10 +663,65 @@
         "variants": {
           "MeridianVisaPassport1": {
             "sections": [
-              { "id": 1, "eyebrow": "Visa & Passport Information", "title": "Complete Guidance on", "titleAccent": "Visa & Passport", "titleEnd": "Process", "text": "Get accurate and up-to-date information on passport applications, student visa requirements and the complete process to make your international journey smooth and hassle-free.", "image": "/img/visa-1.webp", "alt": "Indian passport and boarding pass on a world map", "imageSide": "right", "tone": "white" },
-              { "id": 2, "eyebrow": "About This Service", "title": "Reliable Information", "titleLine2": "for Your", "titleAccent": "Global Journey", "text": "We provide clear and updated information on passport application, student visa requirements, documentation and the complete process so you can prepare with confidence and avoid delays. Our team guides you at every step to make your travel and study plans hassle-free.", "image": "/img/visa-2.webp", "alt": "Counsellor advising a client with a world map behind", "imageSide": "left", "tone": "tint" },
-              { "id": 3, "eyebrow": "Passport Information", "title": "Apply for Your", "titleAccent": "Passport with Ease", "text": "Get complete information on passport application process, required documents, renewal and other essential details to make it simple and hassle-free.", "image": "/img/visa-3.webp", "alt": "Hand holding an Indian passport at an airport", "imageSide": "right", "tone": "white" },
-              { "id": 4, "eyebrow": "Student Visa Information", "title": "Understand", "titleAccent": "Student Visa", "titleEnd": "Process", "text": "Get detailed information on different types of student visas, eligibility criteria, required documents and the complete application process for your chosen destination.", "image": "/img/visa-4.webp", "alt": "Traveller looking out at an airport runway at sunset", "imageSide": "left", "tone": "white" }
+              {
+                "id": 1,
+                "eyebrow": "Overview",
+                "title": "Complete Guidance on",
+                "titleAccent": "Visa & Passport",
+                "titleEnd": "Process",
+                "text": "Accurate guidance on passports, visas and embassy procedures.",
+                "image": "/img/tab-1.webp",
+                "alt": "Magnifying glass over a world map",
+                "imageSide": "right",
+                "tone": "white"
+              },
+              {
+                "id": 2,
+                "eyebrow": "Embassy Procedures",
+                "title": "Reliable Information",
+                "titleLine2": "for Your",
+                "titleAccent": "Global Journey",
+                "text": "Documents, fees and timelines, explained in plain language.",
+                "image": "/img/tab-2.webp",
+                "alt": "Flags of many nations on poles",
+                "imageSide": "left",
+                "tone": "tint"
+              },
+              {
+                "id": 3,
+                "eyebrow": "Passport Services",
+                "title": "Apply for Your",
+                "titleAccent": "Passport with Ease",
+                "text": "Required documents, renewals and consular support.",
+                "image": "/img/tab-3.webp",
+                "alt": "Classical columns of a government building",
+                "imageSide": "right",
+                "tone": "white"
+              },
+              {
+                "id": 4,
+                "eyebrow": "Visa Information",
+                "title": "Understand the",
+                "titleAccent": "Visa",
+                "titleEnd": "Process",
+                "text": "Categories, eligibility and the full application route.",
+                "image": "/img/tab-4.webp",
+                "alt": "Aeroplane wing at sunset",
+                "imageSide": "left",
+                "tone": "white"
+              },
+              {
+                "id": 5,
+                "eyebrow": "Express Clearance",
+                "title": "Priority Diplomatica",
+                "titleAccent": "Fast-Track",
+                "titleEnd": "Dispatch",
+                "text": "Priority embassy submissions and expedited attestation.",
+                "image": "/img/visa-1.webp",
+                "alt": "Passport, boarding pass and flight route map",
+                "imageSide": "left",
+                "tone": "white"
+              }
             ]
           }
         }
@@ -350,71 +732,151 @@
             "posts": [
               {
                 "id": 1,
-                "slug": "ultimate-guide-to-applying-for-a-tourist-visa",
+                "slug": "how-embassy-appointments-work",
                 "date": "2025-01-06",
-                "title": "The ultimate guide to applying",
-                "titleAccent": "for a tourist visa",
-                "excerpt": "A complete guide to help you understand the tourist visa application process, required documents, eligibility criteria and useful tips for a smooth and hassle-free experience.",
-                "image": "/img/blog-1.webp",
-                "cover": "/img/post-1.webp",
+                "title": "How embassy appointments",
+                "titleAccent": "really work",
+                "excerpt": "A clear walkthrough of booking an embassy or consulate appointment, what to bring, and how to avoid the delays that catch most applicants out.",
+                "image": "/img/news-1.webp",
+                "cover": "/img/news-1.webp",
                 "sections": [
-                  { "heading": "Introduction", "body": "A tourist visa allows you to explore new countries, experience different cultures and create unforgettable memories. Understanding the application process, required documents and eligibility criteria can make your journey smooth and stress-free. In this guide, we share all the essential information you need to successfully apply for a tourist visa." },
-                  { "image": "/img/post-2.webp", "imageAlt": "Traveller looking at an aircraft on the runway", "heading": "Who Needs a Tourist Visa?", "body": "A tourist visa is generally required for individuals who plan to visit a foreign country for leisure, sightseeing or to meet friends and family. The requirements may vary depending on the destination country, your nationality and the purpose of travel." },
-                  { "heading": "Documents Required", "body": "Common documents for a tourist visa application include a valid passport, recent photographs, travel itinerary, proof of accommodation, financial proof and a completed application form. Some countries may require additional documents, so it is important to check the specific requirements before applying." },
-                  { "image": "/img/post-3.webp", "imageAlt": "Person filling in a visa application form", "heading": "Application Process", "body": "The application process usually involves filling out an online or offline application form, submitting the required documents, paying the visa fee and attending a visa interview if required. Processing times vary by country, so it is advisable to apply well in advance of your travel dates." },
-                  { "heading": "Useful Tips", "body": "To ensure a smooth visa application process, keep all your documents ready, provide accurate information, follow the guidelines of the respective embassy or consulate and apply early to avoid last-minute delays." }
-                ]
+                  {
+                    "heading": "Introduction",
+                    "body": "Most embassies and consulates work on an appointment basis. Slots can be limited, so planning ahead and arriving with a complete file makes a real difference to your timeline."
+                  },
+                  {
+                    "heading": "Booking Your Slot",
+                    "body": "Appointments are usually booked through the embassy or an official portal. Choose the correct visa or service category, pay any fee and keep your confirmation, as you will need it at the entrance.",
+                    "image": "/img/art-1a.webp",
+                    "imageAlt": "Adviser and clients in a meeting"
+                  },
+                  {
+                    "heading": "What to Bring",
+                    "body": "Bring your passport, appointment confirmation, completed forms, photographs and all supporting documents in the order the embassy lists them. Carry originals and copies."
+                  },
+                  {
+                    "heading": "On the Day",
+                    "body": "Arrive early, follow security instructions and answer questions briefly and honestly. Interviews are often short, so be ready to explain your purpose of travel clearly.",
+                    "image": "/img/art-1b.webp",
+                    "imageAlt": "Agent reviewing documents with a client"
+                  },
+                  {
+                    "heading": "Useful Tips",
+                    "body": "Check the embassy's official website for current rules, avoid third parties who promise guaranteed slots, and keep digital copies of every document you submit."
+                  }
+                ],
+                "category": "Appointments"
               },
               {
                 "id": 2,
-                "slug": "how-to-fast-track-your-business-visa-application",
+                "slug": "understanding-apostille-and-document-attestation",
                 "date": "2025-01-06",
-                "title": "How to fast-track your business",
-                "titleAccent": "visa application",
-                "excerpt": "Practical steps to prepare your documents, choose the right visa category and avoid the delays that commonly slow down business visa applications.",
-                "image": "/img/blog-2.webp",
-                "cover": "/img/post-1.webp",
+                "title": "Understanding apostille",
+                "titleAccent": "and document attestation",
+                "excerpt": "What apostille and attestation mean, when you need them, and how they help your certificates be accepted by foreign authorities.",
+                "image": "/img/news-2.webp",
+                "cover": "/img/news-2.webp",
                 "sections": [
-                  { "heading": "Introduction", "body": "Business travel often comes with tight deadlines. While no one can guarantee a decision date, a well-prepared application is far less likely to be delayed. This guide covers the preparation steps that help business visa applications move forward without unnecessary back-and-forth." },
-                  { "image": "/img/post-2.webp", "imageAlt": "Traveller waiting at an airport window", "heading": "Choose the Right Visa Category", "body": "Business visas differ from tourist and work visas. Confirm whether your activities, such as attending meetings, signing contracts or providing services, are permitted under a business visa for your destination. Applying under the wrong category is one of the most common reasons for refusals and re-submissions." },
-                  { "heading": "Prepare a Complete Document Set", "body": "Typical requirements include a valid passport, an invitation letter from the host company, proof of your employment or business, financial statements, travel insurance and a clear itinerary. Make sure names, dates and purposes match across every document." },
-                  { "image": "/img/post-3.webp", "imageAlt": "Visa application form being completed", "heading": "Check Appointment and Processing Options", "body": "Some embassies and consulates offer priority or expedited appointment options, while others run on fixed queues. Review the official website of the relevant mission, book your biometric or interview slot early and keep copies of every confirmation." },
-                  { "heading": "Useful Tips", "body": "Respond quickly to any request for additional information, keep your travel plans flexible until the visa is issued and consider professional guidance if your case involves multiple countries or frequent travel." }
-                ]
+                  {
+                    "heading": "Introduction",
+                    "body": "When a document issued in one country is used in another, the receiving authority needs to trust it. Attestation and apostille are the formal ways of providing that assurance."
+                  },
+                  {
+                    "heading": "What Is an Apostille?",
+                    "body": "An apostille is a certificate issued under the Hague Convention that confirms a public document is genuine. Countries that are members of the convention accept it without further embassy legalisation.",
+                    "image": "/img/art-2a.webp",
+                    "imageAlt": "Official building with classical columns"
+                  },
+                  {
+                    "heading": "When Is Attestation Needed?",
+                    "body": "If the destination country is not part of the convention, documents are usually attested step by step: by the issuing authority, the foreign ministry and finally the destination country's embassy."
+                  },
+                  {
+                    "heading": "Common Documents",
+                    "body": "Educational certificates, birth and marriage certificates, police clearance and commercial documents are the most frequent items that need to be legalised.",
+                    "image": "/img/art-2b.webp",
+                    "imageAlt": "Columned courthouse facade"
+                  },
+                  {
+                    "heading": "Useful Tips",
+                    "body": "Confirm the exact requirement with the receiving authority first, keep originals safe and allow extra time, as ministry and embassy processing can vary."
+                  }
+                ],
+                "category": "Attestation"
               },
               {
                 "id": 3,
-                "slug": "top-5-countries-offering-easy-visa-processes",
+                "slug": "embassy-vs-consulate-whats-the-difference",
                 "date": "2025-01-06",
-                "title": "Top 5 countries offering",
-                "titleAccent": "easy visa processes",
-                "excerpt": "What makes a visa process easy, and the features to look for when comparing destinations such as e-visa availability, clear documentation lists and quick appointments.",
-                "image": "/img/blog-3.webp",
-                "cover": "/img/post-1.webp",
+                "title": "Embassy vs consulate:",
+                "titleAccent": "what is the difference?",
+                "excerpt": "Both represent a country abroad, but they do different jobs. Learn which one handles your visa, passport or document request.",
+                "image": "/img/news-3.webp",
+                "cover": "/img/news-3.webp",
                 "sections": [
-                  { "heading": "Introduction", "body": "Travellers often ask which destinations are the simplest to visit. Visa rules change frequently and depend heavily on your nationality, so instead of a fixed ranking this guide explains the features that usually make a visa process easier, so you can compare destinations yourself." },
-                  { "image": "/img/post-2.webp", "imageAlt": "Traveller looking out at an airport runway", "heading": "Online and E-Visa Systems", "body": "Destinations that offer a fully online application, with electronic payment and an e-visa delivered by email, save time and reduce paperwork. Always apply through the official government portal to avoid look-alike websites." },
-                  { "heading": "Clear Requirements and Fast Decisions", "body": "A short, transparent checklist of documents and published processing times make planning far easier. Look for official guidance that states exactly what is needed and how long a decision usually takes." },
-                  { "image": "/img/post-3.webp", "imageAlt": "Person writing on a visa application form", "heading": "Flexible Entry Options", "body": "Some destinations provide visa-on-arrival, multiple-entry permits or longer validity for frequent travellers. These options can be valuable if you plan to visit more than once or combine several stops in one trip." },
-                  { "heading": "Useful Tips", "body": "Verify the latest rules on the official embassy or immigration website before booking flights, check your passport validity and keep supporting documents such as accommodation and return tickets ready." }
-                ]
+                  {
+                    "heading": "Introduction",
+                    "body": "People often use the words embassy and consulate interchangeably, but they serve different purposes. Knowing which to approach saves time and avoids misdirected applications."
+                  },
+                  {
+                    "heading": "The Embassy",
+                    "body": "An embassy is the main diplomatica mission, usually located in the capital. It maintains relations between governments and often oversees consular work for the whole country.",
+                    "image": "/img/art-3a.webp",
+                    "imageAlt": "Neoclassical building facade"
+                  },
+                  {
+                    "heading": "The Consulate",
+                    "body": "Consulates are located in other major cities and focus on citizen and visa services: issuing visas, renewing passports and providing assistance to nationals abroad."
+                  },
+                  {
+                    "heading": "Which Should You Contact?",
+                    "body": "For visas and passports, start with the consulate or embassy section responsible for your region. Official websites list jurisdictions and the services each office provides.",
+                    "image": "/img/art-3b.webp",
+                    "imageAlt": "National flags hanging from a building"
+                  },
+                  {
+                    "heading": "Useful Tips",
+                    "body": "Always use official channels, check opening hours and holidays, and confirm whether your service needs an appointment before travelling to the office."
+                  }
+                ],
+                "category": "Consular Guide"
               },
               {
                 "id": 4,
-                "slug": "how-to-extend-your-visa-while-abroad",
+                "slug": "how-to-prepare-for-your-visa-interview",
                 "date": "2025-01-06",
-                "title": "How to extend your visa",
-                "titleAccent": "while abroad",
-                "excerpt": "Planning to stay longer than expected? Learn when to apply for an extension, what documents are usually required and how to avoid overstaying.",
-                "image": "/img/blog-4.webp",
-                "cover": "/img/post-1.webp",
+                "title": "How to prepare for",
+                "titleAccent": "your visa interview",
+                "excerpt": "Practical preparation tips to help you stay calm, answer clearly and present a consistent, honest application at the consulate.",
+                "image": "/img/news-4.webp",
+                "cover": "/img/news-4.webp",
                 "sections": [
-                  { "heading": "Introduction", "body": "Plans change, and sometimes you need more time abroad than your visa allows. Most countries have a process for extending a stay, but it must be started before your current permission expires. This guide explains the general steps involved." },
-                  { "image": "/img/post-2.webp", "imageAlt": "Traveller waiting near an airport window", "heading": "Know Your Expiry Date", "body": "Check the validity and permitted length of stay on your visa and entry stamp. These are not always the same. Apply for an extension well before the earlier of the two dates, as processing can take time and rules differ between countries." },
-                  { "heading": "Documents Usually Required", "body": "Extensions typically ask for your passport, the current visa, a completed form, the reason for extending, proof of funds, accommodation details and, in many cases, an onward or return ticket. Requirements vary, so confirm with the local immigration office." },
-                  { "image": "/img/post-3.webp", "imageAlt": "Visa form being filled in with a pen", "heading": "Submitting the Application", "body": "Applications are submitted online or in person at the immigration authority, with a fee in most cases. Keep receipts and reference numbers safe, and ask whether you are allowed to stay while the decision is pending." },
-                  { "heading": "Useful Tips", "body": "Never overstay while waiting for a decision unless the authority confirms in writing that you may remain. Overstaying can lead to fines, deportation or difficulty getting visas in future." }
-                ]
+                  {
+                    "heading": "Introduction",
+                    "body": "A visa interview is usually short, but it carries weight. Consular officers want to confirm the information in your application and understand your plans."
+                  },
+                  {
+                    "heading": "Know Your Application",
+                    "body": "Re-read your forms and supporting documents before the interview. Your answers should match them exactly, from travel dates to finances and your purpose of visit.",
+                    "image": "/img/art-4a.webp",
+                    "imageAlt": "Officials shaking hands at a table"
+                  },
+                  {
+                    "heading": "Organise Your Documents",
+                    "body": "Arrange documents in the order the embassy lists them and carry originals as well as copies. A tidy file shows you are well prepared."
+                  },
+                  {
+                    "heading": "During the Interview",
+                    "body": "Answer directly and honestly, and do not volunteer unrelated details. If you do not understand a question, politely ask for it to be repeated.",
+                    "image": "/img/art-4b.webp",
+                    "imageAlt": "Two professionals shaking hands"
+                  },
+                  {
+                    "heading": "Useful Tips",
+                    "body": "Dress neatly, arrive early, stay calm and practise common questions beforehand. A mock interview with an adviser can build real confidence."
+                  }
+                ],
+                "category": "Visa Prep"
               }
             ]
           }
@@ -445,32 +907,44 @@
             "title": "Your Privacy",
             "titleAccent": "Matters to Us",
             "updated": "January 6, 2025",
-            "intro": "This Privacy Policy explains how The Meridian collects, uses and protects the personal information you share with us when you use our website and consultancy services.",
+            "intro": "This Privacy Policy explains how Diplomatica Embassies collects, uses and protects the personal information you share with us when you use our website and consultancy services.",
             "sections": [
-              { "heading": "Information We Collect", "body": [
+              {
+                "heading": "Information We Collect",
+                "body": [
                   "We collect details you provide directly, such as your name, email address, phone number and the message you send through our contact form.",
                   "We may also receive basic technical data, such as browser type, device information and pages visited, to help us understand how the website is used."
                 ]
               },
-              { "heading": "How We Use Your Information", "body": [
+              {
+                "heading": "How We Use Your Information",
+                "body": [
                   "We use your information to respond to enquiries, provide visa, passport and counselling support, share relevant updates and improve our services.",
                   "We do not sell your personal information to third parties."
                 ]
               },
-              { "heading": "Sharing of Information", "body": [
+              {
+                "heading": "Sharing of Information",
+                "body": [
                   "We may share information with trusted service providers who help us operate the website or deliver our services, and only as far as needed for those purposes.",
                   "We may disclose information where required by law or to protect our rights and the safety of our clients."
                 ]
               },
-              { "heading": "Data Security", "body": [
+              {
+                "heading": "Data Security",
+                "body": [
                   "We take reasonable technical and organisational steps to protect your information against unauthorised access, loss or misuse. No method of transmission over the internet is completely secure, so we cannot guarantee absolute security."
                 ]
               },
-              { "heading": "Your Rights", "body": [
+              {
+                "heading": "Your Rights",
+                "body": [
                   "You may ask to access, correct or delete the personal information we hold about you, or object to certain uses of it, by contacting us using the details below."
                 ]
               },
-              { "heading": "Contact Us", "body": [
+              {
+                "heading": "Contact Us",
+                "body": [
                   "If you have any questions about this Privacy Policy, please reach out through the Contact Us page or the email address shown in the website footer."
                 ]
               }
@@ -481,33 +955,47 @@
             "title": "Terms for Using",
             "titleAccent": "Our Services",
             "updated": "January 6, 2025",
-            "intro": "By accessing this website or using the services of The Meridian, you agree to the following terms. Please read them carefully before proceeding.",
+            "intro": "By accessing this website or using the services of Diplomatica Embassies, you agree to the following terms. Please read them carefully before proceeding.",
             "sections": [
-              { "heading": "Use of the Website", "body": [
+              {
+                "heading": "Use of the Website",
+                "body": [
                   "The content on this website is provided for general information about visas, passports and immigration services. You agree to use the website lawfully and not to misuse or disrupt it."
                 ]
               },
-              { "heading": "Nature of Our Services", "body": [
-                  "The Meridian provides counselling and guidance on immigration, visa and passport processes. We are not a government body, and we cannot guarantee visa approval, as final decisions rest solely with the relevant embassy, consulate or authority."
+              {
+                "heading": "Nature of Our Services",
+                "body": [
+                  "Diplomatica Embassies provides counselling and guidance on immigration, visa and passport processes. We are not a government body, and we cannot guarantee visa approval, as final decisions rest solely with the relevant embassy, consulate or authority."
                 ]
               },
-              { "heading": "Accuracy of Information", "body": [
+              {
+                "heading": "Accuracy of Information",
+                "body": [
                   "We work to keep information accurate and up to date, but immigration rules change often. Please verify requirements with the official authority before relying on them."
                 ]
               },
-              { "heading": "Client Responsibilities", "body": [
+              {
+                "heading": "Client Responsibilities",
+                "body": [
                   "You agree to provide accurate, complete and truthful information and documents. Any consequence of incorrect or misleading information is the client’s responsibility."
                 ]
               },
-              { "heading": "Intellectual Property", "body": [
-                  "All text, graphics, logos and images on this website belong to The Meridian or its licensors and may not be copied or reused without written permission."
+              {
+                "heading": "Intellectual Property",
+                "body": [
+                  "All text, graphics, logos and images on this website belong to Diplomatica Embassies or its licensors and may not be copied or reused without written permission."
                 ]
               },
-              { "heading": "Limitation of Liability", "body": [
-                  "To the fullest extent permitted by law, The Meridian is not liable for any indirect or consequential loss arising from the use of this website or reliance on its content."
+              {
+                "heading": "Limitation of Liability",
+                "body": [
+                  "To the fullest extent permitted by law, Diplomatica Embassies is not liable for any indirect or consequential loss arising from the use of this website or reliance on its content."
                 ]
               },
-              { "heading": "Changes to These Terms", "body": [
+              {
+                "heading": "Changes to These Terms",
+                "body": [
                   "We may update these terms from time to time. The latest version will always be available on this page, and continued use of the website means you accept the changes."
                 ]
               }

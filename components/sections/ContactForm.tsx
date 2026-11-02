@@ -1,9 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
-import { AlertCircle, Loader2, Send } from "lucide-react";
+import { AlertCircle, CheckCircle2, Loader2, Send } from "lucide-react";
 
 function cn(...classes: Array<string | false | null | undefined>): string {
   return classes.filter(Boolean).join(" ");
@@ -34,13 +33,12 @@ function validate(v: Record<Field, string>): Errors {
 }
 
 const inputClass =
-  "w-full rounded-md border border-(color:--color-navy)/15 bg-white px-4 text-[15px] text-(color:--color-navy) placeholder:text-(color:--color-mute)/70 outline-none transition focus:border-(color:--color-brand) focus:ring-4 focus:ring-(color:--color-brand)/10";
+  "w-full rounded-md border border-[#0c2250]/15 bg-white px-3.5 text-[14px] text-[#0c2250] placeholder:text-[#666d82]/70 outline-none transition focus:border-[#b4841f] focus:ring-4 focus:ring-[#b4841f]/10";
 
 export function ContactForm() {
-  const router = useRouter();
   const [values, setValues] = useState(EMPTY);
   const [errors, setErrors] = useState<Errors>({});
-  const [status, setStatus] = useState<"idle" | "sending">("idle");
+  const [status, setStatus] = useState<"idle" | "sending" | "sent">("idle");
   const set = (field: Field) => (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
@@ -57,7 +55,7 @@ export function ContactForm() {
     const form = new FormData(e.currentTarget);
     if (String(form.get("company") ?? "").trim() !== "") {
       setValues(EMPTY);
-      router.push("/thank-you");
+      setStatus("sent");
       return;
     }
 
@@ -68,18 +66,40 @@ export function ContactForm() {
       return;
     }
     setValues(EMPTY);
-    router.push("/thank-you");
+    setStatus("sent");
   }
 
   const fieldError = (f: Field) =>
     errors[f] ? (
-      <p role="alert" className="mt-1.5 text-[13px] text-(color:--color-brand)">
+      <p role="alert" className="mt-1 text-[12px] text-[#b4841f]">
         {errors[f]}
       </p>
     ) : null;
 
+  if (status === "sent") {
+    return (
+      <div role="status" className="flex flex-col items-start gap-4 py-6">
+        <span className="grid h-16 w-16 place-items-center rounded-full bg-emerald-100">
+          <CheckCircle2 className="h-8 w-8 text-emerald-600" strokeWidth={1.5} />
+        </span>
+        <h3 className="font-[family-name:Playfair_Display,Georgia,serif] text-2xl font-bold text-[#0c2250]">Thank you!</h3>
+        <p className="text-[#666d82]">
+          Your message has been received. Our team will get back to you within{" "}
+          <strong className="text-[#0c2250]">24 hours</strong>.
+        </p>
+        <button
+          type="button"
+          onClick={() => setStatus("idle")}
+          className="font-semibold text-[#b4841f] underline-offset-4 hover:underline"
+        >
+          Send another message
+        </button>
+      </div>
+    );
+  }
+
   return (
-    <form onSubmit={onSubmit} noValidate className="space-y-4">
+    <form onSubmit={onSubmit} noValidate className="space-y-2.5">
       <input
         type="text"
         name="company"
@@ -89,10 +109,10 @@ export function ContactForm() {
         className="absolute -left-[9999px] h-0 w-0 opacity-0"
       />
 
-      <div className="grid gap-4 sm:grid-cols-2">
+      <div className="grid gap-2.5 sm:grid-cols-2">
         <div>
           <input
-            className={cn(inputClass, "h-14", errors.name && "border-(color:--color-brand)")}
+            className={cn(inputClass, "h-10 sm:h-10.5", errors.name && "border-[#b4841f]")}
             type="text"
             name="name"
             placeholder="Full Name"
@@ -105,7 +125,7 @@ export function ContactForm() {
         </div>
         <div>
           <input
-            className={cn(inputClass, "h-14", errors.email && "border-(color:--color-brand)")}
+            className={cn(inputClass, "h-10 sm:h-10.5", errors.email && "border-[#b4841f]")}
             type="email"
             name="email"
             placeholder="Email Address"
@@ -118,7 +138,7 @@ export function ContactForm() {
         </div>
         <div>
           <input
-            className={cn(inputClass, "h-14", errors.phone && "border-(color:--color-brand)")}
+            className={cn(inputClass, "h-10 sm:h-10.5", errors.phone && "border-[#b4841f]")}
             type="tel"
             name="phone"
             placeholder="Phone Number"
@@ -131,7 +151,7 @@ export function ContactForm() {
         </div>
         <div>
           <input
-            className={cn(inputClass, "h-14", errors.subject && "border-(color:--color-brand)")}
+            className={cn(inputClass, "h-10 sm:h-10.5", errors.subject && "border-[#b4841f]")}
             type="text"
             name="subject"
             placeholder="Subject"
@@ -145,11 +165,11 @@ export function ContactForm() {
 
       <div>
         <textarea
-          className={cn(inputClass, "min-h-[150px] resize-y py-4", errors.message && "border-(color:--color-brand)")}
+          className={cn(inputClass, "min-h-[70px] resize-none py-2 text-[14px]", errors.message && "border-[#b4841f]")}
           name="message"
           placeholder="Your Message"
           aria-label="Your Message"
-          rows={5}
+          rows={2}
           value={values.message}
           onChange={set("message")}
         />
@@ -159,16 +179,16 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={status === "sending"}
-        className="group relative inline-flex items-center gap-3 overflow-hidden rounded-md bg-gradient-to-b from-(color:--color-brand-400) to-(color:--color-brand-700) px-7 py-4 text-base font-medium text-white shadow-(--shadow-glow) transition-all duration-300 hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-70"
+        className="group relative inline-flex items-center gap-2.5 overflow-hidden rounded-md bg-gradient-to-b from-[#e2bd5c] to-[#b98a28] px-6 py-2.5 text-sm font-semibold text-[#060f27] shadow-[0_8px_20px_-6px_rgba(185,138,40,0.5)] transition-all duration-300 hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-70 sm:text-base"
       >
         {status === "sending" ? (
           <>
-            <Loader2 className="h-5 w-5 animate-spin" /> Sending...
+            <Loader2 className="h-4 w-4 animate-spin" /> Sending...
           </>
         ) : (
           <>
             Send Message
-            <Send className="h-[18px] w-[18px] transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-0.5" />
+            <Send className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-0.5" />
           </>
         )}
       </button>
@@ -181,7 +201,7 @@ export function ContactForm() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0 }}
-            className="flex items-start gap-3 rounded-md border border-(color:--color-brand)/30 bg-(color:--color-brand-50) p-4 text-(color:--color-brand-700)"
+            className="flex items-start gap-3 rounded-md border border-[#b4841f]/30 bg-[#fbf6e8] p-4 text-[#8f6a1a]"
           >
             <AlertCircle className="mt-0.5 h-5 w-5 shrink-0" />
             <p className="text-[15px]">{errors.form}</p>

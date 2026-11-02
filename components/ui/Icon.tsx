@@ -1,5 +1,6 @@
 import {
   Building2,
+  CalendarCheck,
   ClipboardList,
   FileCheck2,
   FileText,
@@ -29,6 +30,7 @@ const ICONS: Record<IconName, LucideIcon> = {
   headset: Headset,
   "trending-up": TrendingUp,
   message: MessageSquare,
+  calendar: CalendarCheck,
 };
 
 export function Icon({

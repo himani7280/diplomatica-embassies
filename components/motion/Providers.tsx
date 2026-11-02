@@ -3,6 +3,7 @@
 import { MotionConfig } from "framer-motion";
 import { Suspense, type ReactNode } from "react";
 import { ScrollToTop } from "./ScrollToTop";
+import { IntroProvider } from "@/components/luxe/Intro";
 
 export function Providers({ children }: { children: ReactNode }) {
   return (
@@ -10,7 +11,9 @@ export function Providers({ children }: { children: ReactNode }) {
       <Suspense fallback={null}>
         <ScrollToTop />
       </Suspense>
-      {children}
+      <IntroProvider>
+        {children}
+      </IntroProvider>
     </MotionConfig>
   );
 }

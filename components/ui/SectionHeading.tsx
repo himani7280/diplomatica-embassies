@@ -23,11 +23,11 @@ export function Eyebrow({
         className,
       )}
     >
-      <span className="h-[2px] w-9 bg-(color:--color-brand) sm:w-12" />
+      <span className="h-[2px] w-9 bg-[#b4841f] sm:w-12" />
       <span
         className={cn(
           "text-[12px] font-semibold uppercase tracking-[0.2em] sm:text-[13px]",
-          light ? "text-white" : "text-(color:--color-navy)",
+          light ? "text-white" : "text-[#0c2250]",
         )}
       >
         {children}
@@ -60,8 +60,8 @@ export function GradientTitle({
   return (
     <Tag
       className={cn(
-        "font-(family-name:--family-title) text-[2rem] font-extrabold leading-[1.12] tracking-tight sm:text-4xl lg:text-[2.9rem]",
-        light ? "text-white" : "text-(color:--color-navy)",
+        "font-[family-name:Playfair_Display,Georgia,serif] text-[2rem] font-extrabold leading-[1.12] tracking-tight sm:text-4xl lg:text-[2.9rem]",
+        light ? "text-white" : "text-[#0c2250]",
         className,
       )}
     >
@@ -78,7 +78,7 @@ export function GradientTitle({
           <br />
         )
       ) : null}
-      {accent ? <span className="text-(color:--color-brand)">{accent}</span> : null}
+      {accent ? <span className="text-[#b4841f]">{accent}</span> : null}
       {end ? ` ${end}` : null}
     </Tag>
   );
@@ -117,7 +117,7 @@ export function SectionHeading({
             className={cn(
               "mt-3 text-[15px] leading-7 sm:text-base",
               center && "mx-auto max-w-2xl",
-              title.light ? "text-white/80" : "text-(color:--color-mute)",
+              title.light ? "text-white/80" : "text-[#666d82]",
               textClassName,
             )}
           >

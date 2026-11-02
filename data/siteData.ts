@@ -7,6 +7,7 @@ export interface NavLink {
 
 export interface SiteData {
   brand: { name: string; tagline: string };
+  bodyBgClass: string;
   nav: NavLink[];
   cta: NavLink;
   quickLinks: NavLink[];
@@ -30,7 +31,11 @@ export interface HomeData {
   hero: {
     titleLine1: string;
     titleAccent: string;
+    eyebrow: string;
+    text: string;
     button: NavLink;
+    secondaryButton: NavLink;
+    highlights: string[];
   };
   about: {
     eyebrow: string;
@@ -41,6 +46,7 @@ export interface HomeData {
     statValue: number;
     statSuffix: string;
     statLabel: string;
+    pillars: { title: string; text: string }[];
   };
   services: {
     eyebrow: string;
@@ -79,7 +85,8 @@ export type IconName =
   | "building"
   | "headset"
   | "trending-up"
-  | "message";
+  | "message"
+  | "calendar";
 
 export interface HighlightService {
   id: number;
@@ -192,6 +199,7 @@ export interface NewsPost {
   title: string;
   titleAccent: string;
   excerpt: string;
+  category?: string;
   image: string;
   cover: string;
   sections: NewsSection[];
@@ -225,12 +233,10 @@ export type PageBannerKey =
 
 /* ---------- JSON-backed content ---------- */
 
-const { globalTheme, Meridian } = rawData;
+const { Meridian } = rawData;
 const { sections } = Meridian;
 const chrome = sections.SiteChrome.variants;
 const heroes = sections.Hero.variants;
-
-export { globalTheme };
 
 export const pageBanners: Record<PageBannerKey, PageBanner> = {
   about: heroes.MeridianAboutHero1,
@@ -249,20 +255,46 @@ export const legalPages: { privacy: LegalContent; terms: LegalContent } = {
   terms: sections.Legal.variants.MeridianTerms1,
 };
 
+/* Single page: every top-level page now lives as a section of "/". */
+const sectionAnchors: Record<string, string> = {
+  "/": "/#home",
+  "/home": "/#home",
+  "/about": "/#about",
+  "/services": "/#services",
+  "/visa-passport": "/#visa",
+  "/news-events": "/#news",
+  "/contact": "/#contact",
+  "/privacy-policy": "/#privacy",
+  "/terms": "/#terms",
+};
+
+const toAnchor = (link: NavLink): NavLink => ({
+  ...link,
+  href: sectionAnchors[link.href] ?? link.href,
+});
+
 export const getSite = async (): Promise<SiteData> => ({
   brand: chrome.MeridianHeader1.brand,
-  nav: chrome.MeridianHeader1.nav,
-  cta: chrome.MeridianHeader1.cta,
-  quickLinks: chrome.MeridianFooter1.quickLinks,
+  bodyBgClass: (rawData as unknown as { theme?: { bodyBgClass?: string } }).theme?.bodyBgClass ?? "bg-[#e5dac9]",
+  nav: chrome.MeridianHeader1.nav.map(toAnchor),
+  cta: toAnchor(chrome.MeridianHeader1.cta),
+  quickLinks: chrome.MeridianFooter1.quickLinks.map(toAnchor),
   contact: chrome.MeridianFooter1.contact,
   social: chrome.MeridianFooter1.social as SiteData["social"],
-  legal: chrome.MeridianFooter1.legal,
+  legal: chrome.MeridianFooter1.legal.map(toAnchor),
 });
 
 export const getHome = async (): Promise<HomeData> => ({
-  hero: heroes.MeridianHomeHero1,
+  hero: {
+    ...heroes.MeridianHomeHero1,
+    button: toAnchor(heroes.MeridianHomeHero1.button),
+    secondaryButton: toAnchor(heroes.MeridianHomeHero1.secondaryButton),
+  },
   about: sections.About.variants.MeridianAbout1,
-  services: sections.Services.variants.MeridianHomeServices1,
+  services: {
+    ...sections.Services.variants.MeridianHomeServices1,
+    button: toAnchor(sections.Services.variants.MeridianHomeServices1.button),
+  },
   process: sections.Process.variants.MeridianProcess1.section,
   testimonials: sections.Testimonials.variants.MeridianTestimonials1.section,
   cta: sections.Cta.variants.MeridianCta1,

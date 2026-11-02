@@ -12,7 +12,7 @@ interface PageBannerProps {
 
 export function PageBanner({ title, crumb }: PageBannerProps) {
   return (
-    <section className="relative isolate overflow-hidden bg-(color:--color-navy-900)">
+    <section className="relative isolate overflow-hidden bg-[#0a1a3d]">
       <motion.div
         className="absolute inset-0 -z-20"
         initial={{ scale: 1.12 }}
@@ -37,7 +37,7 @@ export function PageBanner({ title, crumb }: PageBannerProps) {
           initial={{ opacity: 0, x: -34 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          className="font-(family-name:--family-title) text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-[2.6rem]"
+          className="font-[family-name:Playfair_Display,Georgia,serif] text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-[2.6rem]"
         >
           {title}
         </motion.h1>

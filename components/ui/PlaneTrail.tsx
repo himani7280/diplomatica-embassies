@@ -25,7 +25,7 @@ export function PlaneTrail({
           strokeLinecap="round"
         />
       </svg>
-      <div className="absolute left-[58%] top-[48%] animate-[plane-fly_5s_ease-in-out_infinite]">
+      <div className="absolute left-[58%] top-[48%] animate-[bounce_5s_ease-in-out_infinite]">
         <Plane className="h-10 w-10 rotate-90 fill-current sm:h-12 sm:w-12" strokeWidth={1} />
       </div>
     </div>

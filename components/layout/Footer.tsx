@@ -2,15 +2,12 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { Mail, MapPin, Phone } from "lucide-react";
 import type { SiteData } from "@/data/siteData";
-import {
-  FacebookIcon,
-  InstagramIcon,
-  LinkedinIcon,
-} from "@/components/ui/SocialIcons";
+import { FacebookIcon, InstagramIcon, LinkedinIcon } from "@/components/ui/SocialIcons";
 import { Reveal } from "@/components/motion/Reveal";
+import { Diamond, OrnamentRule } from "@/components/luxe/Ornaments";
+import { sectionId, useActiveSection } from "./useActiveSection";
 
 const SOCIAL_ICONS = {
   Facebook: FacebookIcon,
@@ -18,67 +15,50 @@ const SOCIAL_ICONS = {
   LinkedIn: LinkedinIcon,
 } as const;
 
+/** Compact, centered footer with reduced vertical height. */
 export function Footer({ site }: { site: SiteData }) {
-  const pathname = usePathname();
   const year = new Date().getFullYear();
+  const activeId = useActiveSection(site.quickLinks.flatMap((l) => sectionId(l.href) ?? []));
+  const isActive = (href: string) => sectionId(href) === activeId;
 
-  function isActive(href: string) {
-    if (href === "/") return pathname === "/" || pathname === "/home";
-    return pathname === href || pathname.startsWith(href);
-  }
+  const contactRows = [
+    { icon: Phone, text: site.contact.phone, href: site.contact.phoneHref },
+    { icon: Mail, text: site.contact.email, href: `mailto:${site.contact.email}` },
+    { icon: MapPin, text: site.contact.address, href: site.contact.mapLink },
+  ];
 
   return (
-    <footer className="bg-(color:--color-navy-900) text-white/80">
-      <div className="mx-auto grid w-full max-w-[1320px] gap-12 px-4 py-14 sm:px-6 lg:grid-cols-[1.25fr_1fr_1.35fr] lg:gap-0 lg:px-10 lg:py-16">
-        <Reveal className="lg:pr-12">
-          <Link href="/" aria-label="The Meridian - Home" className="inline-block">
+    <footer className="relative bg-[#f6f1e3] text-[#0a1a3d]">
+      <div aria-hidden="true" className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#d3a63e] to-transparent" />
+      <div aria-hidden="true" className="bg-[radial-gradient(rgba(10,26,61,0.12)_1px,transparent_1px)] bg-size-[24px_24px] absolute inset-0 opacity-40 [mask-image:linear-gradient(to_bottom,black,transparent_70%)]" />
+
+      <div className="relative mx-auto flex w-full max-w-[1320px] flex-col items-center px-4 pb-5 pt-6 text-center sm:px-6 lg:px-10 lg:pt-8">
+        <Reveal>
+          <Link href="/#home" aria-label="Diplomatica Embassies - Home" className="inline-block">
             <Image
-              src="/img/logo-w.webp"
-              alt="The Meridian - Embassies & Consulates"
-              width={1853}
-              height={462}
-              className="h-14 w-auto sm:h-16"
+              src="/img/logo-brand.webp"
+              unoptimized
+              alt="Diplomatica Embassies - Explore, Connect, Represent"
+              width={1200}
+              height={378}
+              className="h-[52px] w-auto sm:h-[68px]"
             />
           </Link>
-          <p className="mt-8 max-w-[300px] text-[15px] leading-7 text-white/70">
-            {site.brand.tagline}
-          </p>
-          <ul className="mt-6 flex items-center gap-3">
-            {site.social.map((s) => {
-              const Cmp = SOCIAL_ICONS[s.name];
-              return (
-                <li key={s.name}>
-                  <a
-                    href={s.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={s.name}
-                    className="grid h-11 w-11 place-items-center rounded-full border border-white/35 text-white transition-all duration-300 hover:-translate-y-1 hover:border-(color:--color-brand) hover:bg-(color:--color-brand)"
-                  >
-                    <Cmp className="h-[18px] w-[18px]" />
-                  </a>
-                </li>
-              );
-            })}
-          </ul>
         </Reveal>
+        <OrnamentRule className="mt-3.5" />
 
-        <Reveal delay={0.1} className="lg:border-l lg:border-white/15 lg:px-14">
-          <h3 className="font-(family-name:--family-title) text-xl font-bold text-white">Quick Links</h3>
-          <ul className="mt-5 space-y-3">
+        <Reveal delay={0.06}>
+          <ul className="mt-3.5 flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
             {site.quickLinks.map((l) => {
               const active = isActive(l.href);
               return (
-                <li key={l.label}>
+                <li key={l.href}>
                   <Link
                     href={l.href}
-                    className={
-                      active
-                        ? "relative inline-block pb-1 text-[15px] text-white after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:bg-(color:--color-brand)"
-                        : "relative inline-block pb-1 text-[15px] text-white/80 transition-all duration-200 hover:translate-x-1 hover:text-white after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-(color:--color-brand) after:transition-all after:duration-200 hover:after:w-full"
-                    }
+                    className={`group relative text-[11.5px] font-semibold uppercase tracking-[0.18em] transition-colors hover:text-[#8f6a1a] sm:text-[12px] ${active ? "text-[#8f6a1a]" : ""}`}
                   >
                     {l.label}
+                    <span className={`absolute inset-x-0 -bottom-1 h-px bg-[#d3a63e] transition-transform duration-300 ${active ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"}`} />
                   </Link>
                 </li>
               );
@@ -86,65 +66,63 @@ export function Footer({ site }: { site: SiteData }) {
           </ul>
         </Reveal>
 
-        <Reveal delay={0.2} className="lg:border-l lg:border-white/15 lg:pl-14">
-          <h3 className="font-(family-name:--family-title) text-xl font-bold text-white">Get in Touch</h3>
-          <ul className="mt-5 space-y-5">
-            <li className="flex items-center gap-4">
-              <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-(color:--color-brand-400) text-white">
-                <Phone className="h-[18px] w-[18px]" fill="currentColor" strokeWidth={1.5} />
-              </span>
-              <a href={site.contact.phoneHref} className="text-[15px] text-white hover:underline">
-                {site.contact.phone}
-              </a>
-            </li>
-            <li className="flex items-center gap-4">
-              <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-(color:--color-brand-400) text-white">
-                <Mail className="h-[18px] w-[18px]" strokeWidth={2} />
-              </span>
-              <a
-                href={`mailto:${site.contact.email}`}
-                className="break-all text-[15px] text-white hover:underline"
-              >
-                {site.contact.email}
-              </a>
-            </li>
-            <li className="flex items-start gap-4">
-              <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-(color:--color-brand-400) text-white">
-                <MapPin className="h-[18px] w-[18px]" fill="currentColor" strokeWidth={1.5} />
-              </span>
-              <address className="max-w-[280px] pt-0.5 text-[15px] not-italic leading-7 text-white">
-                {site.contact.address}
-              </address>
-            </li>
-          </ul>
-        </Reveal>
-      </div>
-
-      <div className="border-t border-white/10">
-        <div className="mx-auto flex w-full max-w-[1320px] flex-col items-center justify-between gap-3 px-4 py-5 text-sm text-white/70 sm:flex-row sm:px-6 lg:px-10">
-          <p>
-            © {year} {site.brand.name}. All Rights Reserved. Powered by{" "}
-            <a
-              href="https://lestow.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white/80 transition-colors hover:text-white hover:underline"
-            >
-              Lestow
-            </a>
-          </p>
-          <ul className="flex items-center">
-            {site.legal.map((l, i) => (
-              <li
-                key={l.label}
-                className={i > 0 ? "ml-5 border-l border-white/25 pl-5" : undefined}
-              >
-                <Link href={l.href} className="transition-colors hover:text-white">
-                  {l.label}
-                </Link>
+        <Reveal delay={0.12}>
+          <ul className="mt-4 flex flex-wrap items-stretch justify-center gap-2 sm:gap-2.5">
+            {contactRows.map((r) => (
+              <li key={r.text}>
+                <a
+                  href={r.href}
+                  className="group flex h-full items-center gap-2.5 rounded-full border border-[#e2bd5c]/50 bg-white/70 py-1.5 pl-1.5 pr-4 text-left text-[13px] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#d3a63e] hover:bg-white"
+                >
+                  <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-[#0a1a3d] text-[#f0d78c]">
+                    <r.icon className="h-3.5 w-3.5" strokeWidth={2} />
+                  </span>
+                  <span className="max-w-[280px] leading-snug">{r.text}</span>
+                </a>
               </li>
             ))}
           </ul>
+        </Reveal>
+
+        <ul className="mt-3.5 flex items-center justify-center gap-2.5">
+          {site.social.map((s) => {
+            const Cmp = SOCIAL_ICONS[s.name];
+            return (
+              <li key={s.name}>
+                <a
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={s.name}
+                  className="grid h-8 w-8 place-items-center rounded-full border border-[#0a1a3d]/25 text-[#0a1a3d] transition-all duration-300 hover:-translate-y-0.5 hover:border-transparent hover:bg-[#0a1a3d] hover:text-[#f0d78c]"
+                >
+                  <Cmp className="h-3.5 w-3.5" />
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+
+      <div className="relative bg-[#060f27] text-white/65">
+        <div className="mx-auto flex w-full max-w-[1320px] items-center justify-center px-4 py-2.5 text-[12px] sm:px-6 lg:px-10">
+          <p className="flex flex-wrap items-center justify-center gap-2 text-center">
+            <Diamond className="h-1.5 w-1.5 text-[#e2bd5c] shrink-0" />
+            <span>
+              © {year} {site.brand.name}. All Rights Reserved.{" "}
+              <span className="inline-block whitespace-nowrap">
+                Powered by{" "}
+                <a
+                  href="https://lestow.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-medium text-white/90 transition-colors hover:text-[#f0d78c] hover:underline"
+                >
+                  Lestow
+                </a>
+              </span>
+            </span>
+          </p>
         </div>
       </div>
     </footer>
