@@ -17,7 +17,7 @@ export function ProcessTimeline({ intro, steps }: { intro: HomeData["process"]; 
   const fill = useSpring(scrollYProgress, { stiffness: 90, damping: 24 });
 
   return (
-    <section className="relative isolate overflow-hidden bg-[#0a1a3d] pt-8 pb-16 sm:pt-10 sm:pb-20 lg:pt-10 lg:pb-24">
+    <section className="relative isolate overflow-hidden border-y border-[#e2bd5c]/35 bg-[#0a1a3d] py-8 shadow-[0_12px_35px_rgba(10,26,61,0.35)] sm:py-10 lg:py-10">
       <Parallax className="absolute inset-0 -z-10" distance={60}>
         <Image src="/img/proc-main.webp" alt="" fill sizes="100vw" className="scale-125 object-cover opacity-[0.12]" />
       </Parallax>

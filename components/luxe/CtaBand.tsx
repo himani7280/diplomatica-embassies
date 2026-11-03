@@ -6,7 +6,7 @@ import { Laurel } from "./Ornaments";
 
 export function CtaBand({ data, contact }: { data: HomeData["cta"]; contact: SiteData["contact"] }) {
   return (
-    <section className="relative isolate overflow-hidden bg-gradient-to-br from-[#e2bd5c] via-[#f0d78c] to-[#d3a63e] py-8 sm:py-10 lg:py-10">
+    <section className="relative isolate overflow-hidden bg-gradient-to-br from-[#e2bd5c] via-[#f0d78c] to-[#d3a63e] mt-8 sm:mt-10 lg:mt-10 py-8 sm:py-10 lg:py-10">
       <Laurel className="pointer-events-none absolute -left-10 top-1/2 -z-10 h-[340px] w-[340px] -translate-y-1/2 -rotate-12 text-[#060f27]/[0.07]" />
       <Laurel className="pointer-events-none absolute -right-10 top-1/2 -z-10 h-[340px] w-[340px] -translate-y-1/2 rotate-12 text-[#060f27]/[0.07]" />
       <div className="mx-auto flex w-full max-w-[1100px] flex-col items-center px-4 text-center sm:px-6 lg:px-10">

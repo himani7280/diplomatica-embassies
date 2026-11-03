@@ -17,7 +17,7 @@ const ICON_MAP: Record<string, LucideIcon> = {
 // About Diplomatica section
 export function About({ data }: { data: HomeData["about"] }) {
   return (
-    <section className="relative overflow-hidden bg-transparent pt-2 pb-6 sm:pt-3 sm:pb-8 lg:pt-3 lg:pb-8">
+    <section className="relative overflow-hidden bg-transparent pt-8 pb-0 sm:pt-10 sm:pb-0 lg:pt-10 lg:pb-0">
       <div className="mx-auto grid w-full max-w-[1320px] items-center gap-14 px-4 sm:px-6 lg:grid-cols-2 lg:gap-20 lg:px-10">
         <Reveal direction="left" className="relative mx-auto h-[470px] w-full max-w-[520px] sm:h-[560px]">
           <div className="absolute left-0 top-6 h-[78%] w-[66%] overflow-hidden rounded-t-[999px] rounded-b-md bg-[#0a1a3d]">
@@ -71,9 +71,9 @@ export function About({ data }: { data: HomeData["about"] }) {
         if (!mission && !vision) return null;
 
         return (
-          <div className="mt-10 sm:mt-14 w-full">
+          <div className="mt-8 sm:mt-10 lg:mt-10 w-full">
             <Reveal className="w-full">
-              <div className="group relative flex min-h-[420px] w-full items-center justify-center overflow-hidden border-y border-white/10 py-10 px-4 sm:min-h-[450px] sm:py-12 sm:px-6 lg:min-h-[480px] lg:px-10">
+              <div className="group relative flex min-h-[400px] w-full items-center justify-center overflow-hidden border-y border-white/10 py-8 px-4 sm:min-h-[420px] sm:py-10 sm:px-6 lg:min-h-[450px] lg:py-10 lg:px-10">
                 <Image
                   src={bgImage}
                   alt="Diplomatica Embassies Mission & Vision"

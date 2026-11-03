@@ -32,7 +32,7 @@ export function Testimonials({ intro, items }: { intro: HomeData["testimonials"]
   if (!current) return null;
 
   return (
-    <section className="relative isolate overflow-hidden bg-[#060f27] py-16 lg:py-20">
+    <section className="relative isolate overflow-hidden bg-[#060f27] py-8 sm:py-10 lg:py-10">
       <CurveEdge fill="#fdfcf9" className="absolute inset-x-0 top-[-1px] h-[44px] w-full rotate-180 lg:h-[64px]" />
       <Image src="/img/gal-1.webp" alt="" fill sizes="100vw" className="-z-10 object-cover opacity-25" />
       <div aria-hidden="true" className="absolute inset-0 -z-10 bg-gradient-to-b from-[#060f27]/80 via-[#060f27]/70 to-[#060f27]/90" />

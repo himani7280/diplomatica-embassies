@@ -58,11 +58,15 @@ export function OrnamentRule({ className }: { className?: string }) {
   );
 }
 
-/** Curved section edge, like the logo's swoosh, filled with the next section's colour. */
-export function CurveEdge({ fill = "#fdfcf9", className }: { fill?: string; className?: string }) {
+/** Clean straight section divider with gold luxury accent. */
+export function CurveEdge({ className }: { fill?: string; className?: string }) {
+  const isTop = className?.includes("top-");
   return (
-    <svg aria-hidden="true" viewBox="0 0 1440 90" preserveAspectRatio="none" className={className}>
-      <path d="M0 90 V50 C 360 0, 1080 0, 1440 50 V90Z" fill={fill} />
-    </svg>
+    <div
+      aria-hidden="true"
+      className={`pointer-events-none absolute inset-x-0 z-20 h-px w-full bg-gradient-to-r from-transparent via-[#d3a63e]/35 to-transparent ${
+        isTop ? "top-0" : "bottom-0"
+      }`}
+    />
   );
 }

@@ -40,9 +40,9 @@ const SHAPES = [
 /** Flat photo mosaic: images carry the section, text appears only over the photo. */
 export function ServicesBento({ intro, counselling }: Props) {
   return (
-    <section className="relative isolate overflow-hidden bg-[#060f27] py-8 sm:py-10 lg:py-12">
+    <section className="relative isolate overflow-hidden bg-transparent py-8 sm:py-10 lg:py-10">
       <div className="mx-auto w-full max-w-[1320px] px-4 sm:px-6 lg:px-10">
-        <LuxHeading light center eyebrow={intro.eyebrow} title={intro.title} accent={intro.titleAccent} />
+        <LuxHeading center eyebrow={intro.eyebrow} title={intro.title} accent={intro.titleAccent} />
 
         <Stagger className="mt-5 grid gap-2 sm:mt-7 sm:grid-cols-2 sm:gap-3 lg:auto-rows-[250px] lg:grid-cols-4" stagger={0.08}>
           {counselling.items.map((item, i) => {

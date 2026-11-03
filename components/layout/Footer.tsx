@@ -32,7 +32,7 @@ export function Footer({ site }: { site: SiteData }) {
       <div aria-hidden="true" className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#d3a63e] to-transparent" />
       <div aria-hidden="true" className="bg-[radial-gradient(rgba(10,26,61,0.12)_1px,transparent_1px)] bg-size-[24px_24px] absolute inset-0 opacity-40 [mask-image:linear-gradient(to_bottom,black,transparent_70%)]" />
 
-      <div className="relative mx-auto flex w-full max-w-[1320px] flex-col items-center px-2 pb-5 pt-6 text-center sm:px-6 lg:px-10 lg:pt-8">
+      <div className="relative mx-auto flex w-full max-w-[1320px] flex-col items-center px-4 py-8 text-center sm:px-6 sm:py-10 lg:px-10 lg:py-10">
         <Reveal>
           <Link href="/#home" aria-label="Diplomatica Embassies - Home" className="inline-block">
             <Image
@@ -67,17 +67,17 @@ export function Footer({ site }: { site: SiteData }) {
         </Reveal>
 
         <Reveal delay={0.12}>
-          <ul className="mt-4 flex flex-wrap items-center justify-center gap-1.5 sm:gap-2.5">
+          <ul className="mt-4 flex flex-wrap items-center justify-center gap-2 sm:gap-2.5">
             {contactRows.map((r) => (
               <li key={r.text} className="max-w-full">
                 <a
                   href={r.href}
-                  className="group flex max-w-full items-center gap-1.5 rounded-full border border-[#e2bd5c]/50 bg-white/70 py-1 pl-1.5 pr-2.5 text-left text-[14px] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#d3a63e] hover:bg-white sm:gap-2.5 sm:py-1.5 sm:pr-4"
+                  className="group flex max-w-full items-center gap-2 rounded-2xl border border-[#e2bd5c]/50 bg-white/70 py-1.5 pl-2 pr-3.5 text-left text-[14px] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#d3a63e] hover:bg-white sm:rounded-full sm:gap-2.5 sm:py-1.5 sm:pl-1.5 sm:pr-4"
                 >
                   <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-[#0a1a3d] text-[#f0d78c] sm:h-7 sm:w-7">
                     <r.icon className="h-3 w-3 stroke-[2] sm:h-3.5 sm:w-3.5" />
                   </span>
-                  <span className="leading-snug whitespace-nowrap text-[14px] tracking-tight sm:tracking-normal">{r.text}</span>
+                  <span className="leading-snug break-normal text-[14px] text-[#0a1a3d] sm:whitespace-nowrap">{r.text}</span>
                 </a>
               </li>
             ))}

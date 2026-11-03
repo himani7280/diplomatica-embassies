@@ -19,7 +19,7 @@ export function VisaAccordion({ sections }: { sections: VisaSection[] }) {
   const [active, setActive] = useState(0);
 
   return (
-    <section className="relative bg-transparent pt-2 pb-6 sm:pt-3 sm:pb-8 lg:pt-3 lg:pb-8">
+    <section className="relative bg-transparent py-8 sm:py-10 lg:py-10">
       <div className="mx-auto w-full max-w-[1320px] px-4 sm:px-6 lg:px-10">
         <LuxHeading center eyebrow="Visa & Passport" title="Explore" accent="the Journey" />
 

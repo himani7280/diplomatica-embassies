@@ -13,7 +13,7 @@ export function WhyChooseUs({ data }: { data: WhyChooseUsData }) {
   const columns = data.columns || [];
 
   return (
-    <section className="relative overflow-hidden bg-transparent pt-2 pb-6 sm:pt-3 sm:pb-8 lg:pt-3 lg:pb-8">
+    <section className="relative overflow-hidden bg-transparent py-8 sm:py-10 lg:py-10">
       {/* Background contours */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 overflow-hidden opacity-30">
         <svg

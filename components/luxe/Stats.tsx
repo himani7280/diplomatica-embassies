@@ -16,7 +16,7 @@ const STATS = [
 /** Full-width photo band with four counters that run when first scrolled into view. */
 export function Stats() {
   return (
-    <section aria-label="Diplomatica in numbers" className="relative isolate overflow-hidden bg-[#060f27] pt-16 pb-8 sm:pt-20 sm:pb-10 lg:pt-24 lg:pb-12">
+    <section aria-label="Diplomatica in numbers" className="relative isolate overflow-hidden border-y border-[#e2bd5c]/35 bg-[#060f27] py-8 shadow-[0_12px_35px_rgba(6,15,39,0.35)] sm:py-10 lg:py-10">
       <CurveEdge fill="#fdfcf9" className="absolute inset-x-0 top-[-1px] h-[44px] w-full rotate-180 lg:h-[64px]" />
       <Parallax className="absolute inset-0 -z-10" distance={50}>
         <Image src="/img/gal-3.webp" alt="" fill sizes="100vw" className="scale-125 object-cover opacity-40" />

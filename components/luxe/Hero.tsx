@@ -45,7 +45,7 @@ export function Hero({ data }: { data: HomeData["hero"] }) {
   const current = SLIDES[index];
 
   return (
-    <section className="relative isolate flex min-h-[520px] items-center justify-center overflow-hidden bg-[#060f27] pb-16 pt-28 sm:min-h-[580px] sm:pb-20 sm:pt-32 lg:min-h-[660px] lg:pb-24 lg:pt-36">
+    <section className="relative isolate flex min-h-[480px] items-center justify-center overflow-hidden bg-[#060f27] pb-8 pt-24 sm:min-h-[540px] sm:pb-10 sm:pt-28 lg:min-h-[600px] lg:pb-10 lg:pt-32">
       {/* Background slide images */}
       <div aria-hidden="true" className="absolute inset-0 -z-[15]">
         {SLIDES.map((slide, i) => (
@@ -103,7 +103,8 @@ export function Hero({ data }: { data: HomeData["hero"] }) {
         </AnimatePresence>
       </div>
 
-      <CurveEdge fill="#fdfcf9" className="absolute inset-x-0 bottom-[-1px] h-[44px] w-full lg:h-[70px]" />
+      {/* Simple straight edge at the bottom of hero background image */}
+      <CurveEdge />
     </section>
   );
 }

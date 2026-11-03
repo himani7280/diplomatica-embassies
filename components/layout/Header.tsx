@@ -62,86 +62,88 @@ export function Header({ nav, contact }: HeaderProps) {
 
       <header
         className={cn(
-          "fixed inset-x-0 top-0 z-50 transition-all duration-500",
-          compact
-            ? "bg-[#060f27]/35 py-2.5 shadow-[0_8px_32px_rgba(0,0,0,0.18)] backdrop-blur-md border-b border-white/10"
-            : "bg-transparent py-4 border-b border-transparent"
+          "fixed inset-x-0 top-0 z-50 transition-all duration-300 pointer-events-none",
+          compact ? "pt-1.5 sm:pt-2" : "pt-2.5 sm:pt-3.5"
         )}
       >
-        <div className="mx-auto flex w-full max-w-[1440px] items-center justify-between gap-1.5 px-3 sm:px-4 lg:px-4 xl:gap-4 xl:px-8">
-          <Link
-            href="/#home"
-            aria-label="Diplomatica Embassies - Home"
-            className="group shrink-0 rounded-xl bg-white px-2.5 py-1.5 shadow-[0_10px_30px_-12px_rgba(0,0,0,0.45)] ring-1 ring-black/5 backdrop-blur transition-transform duration-500 hover:scale-[1.04] xl:px-3.5 xl:py-2"
-          >
-            <Image
-              src="/img/logo-brand.webp"
-              unoptimized
-              alt="Diplomatica Embassies - Explore, Connect, Represent"
-              width={1200}
-              height={378}
-              priority
-              className={cn("w-auto transition-all duration-500", compact ? "h-[28px] lg:h-[30px] xl:h-[38px]" : "h-[32px] lg:h-[34px] xl:h-[44px]")}
-            />
-          </Link>
-
-          <div className="hidden items-center gap-1.5 lg:flex xl:gap-2.5">
-            <nav aria-label="Main navigation" className="rounded-xl bg-white p-1 shadow-[0_10px_35px_-14px_rgba(0,0,0,0.5)] ring-1 ring-black/5 backdrop-blur-md xl:p-1.5">
-              <ul className="relative flex items-center">
-                {nav.map((item) => {
-                  const active = isActive(item.href);
-                  return (
-                    <li key={item.href} className="relative">
-                      <Link
-                        href={item.href}
-                        className={cn(
-                          "group relative z-10 block whitespace-nowrap px-1.5 py-1 font-sans text-[14px] font-semibold uppercase tracking-tight transition-colors duration-300 xl:px-3.5 xl:py-2 xl:font-mono xl:tracking-[0.06em]",
-                          active ? "text-[#f0d78c]" : "text-[#0a1a3d]",
-                        )}
-                      >
-                        <RollText>{item.label}</RollText>
-                      </Link>
-                      {active ? (
-                        <motion.span layoutId="nav-active" transition={SPRING} className="absolute inset-0 rounded-lg bg-[#0a1a3d] shadow-[0_8px_18px_-8px_rgba(6,15,39,0.8)]">
-                          <span className="absolute inset-x-2 bottom-[3px] h-px bg-gradient-to-r from-transparent via-[#e2bd5c] to-transparent xl:inset-x-3" />
-                        </motion.span>
-                      ) : null}
-                    </li>
-                  );
-                })}
-              </ul>
-            </nav>
-
-            {contact.phone ? (
-              <div className="flex shrink-0 items-center">
-                {/* Standalone phone button: White pill matching logo and nav */}
-                <a
-                  href={contact.phoneHref}
-                  aria-label={`Call us: ${contact.phone}`}
-                  className="group relative inline-flex h-[38px] items-center gap-1.5 overflow-hidden rounded-xl bg-white px-2.5 text-[#0a1a3d] shadow-[0_10px_35px_-14px_rgba(0,0,0,0.5)] ring-1 ring-black/5 backdrop-blur-md transition-all duration-300 hover:bg-[#0a1a3d] hover:text-[#f0d78c] hover:shadow-[0_12px_30px_-10px_rgba(6,15,39,0.7)] xl:h-[46px] xl:gap-2 xl:px-4"
-                >
-                  <span className="grid h-5.5 w-5.5 shrink-0 place-items-center rounded-lg bg-[#0a1a3d] text-[#f0d78c] transition-colors group-hover:bg-[#e2bd5c] group-hover:text-[#060f27] xl:h-6 xl:w-6">
-                    <Phone className="h-3 w-3 stroke-[2.2] xl:h-3.5 xl:w-3.5" />
-                  </span>
-                  <span className="whitespace-nowrap font-sans text-[14px] font-bold tracking-tight xl:font-mono">
-                    {contact.phone}
-                  </span>
-                </a>
-              </div>
-            ) : null}
-          </div>
-
-          <div className="flex items-center gap-2 lg:hidden">
-            {/* Mobile hamburger menu */}
-            <button
-              type="button"
-              onClick={() => setOpen((v) => !v)}
-              aria-label={open ? "Close menu" : "Open menu"}
-              aria-expanded={open}
-              className="grid h-11 w-11 place-items-center rounded-xl bg-white text-[#0a1a3d] shadow-[0_8px_24px_-10px_rgba(0,0,0,0.4)] ring-1 ring-black/5 transition-colors hover:bg-gray-50"
+        <div className="mx-auto w-full max-w-[1360px] px-3 sm:px-6 lg:px-8">
+          <div className="pointer-events-auto flex w-full items-center justify-between gap-2 rounded-2xl border border-[#0a1a3d]/10 bg-white/95 px-3 py-1.5 shadow-[0_10px_35px_-10px_rgba(10,26,61,0.15)] backdrop-blur-md sm:px-5 sm:py-2 xl:gap-4 xl:px-6">
+            <Link
+              href="/#home"
+              aria-label="Diplomatica Embassies - Home"
+              className="group shrink-0 transition-transform duration-300 hover:scale-[1.02]"
             >
-              <Menu className="h-5 w-5" />
-            </button>
+              <Image
+                src="/img/logo-brand.webp"
+                unoptimized
+                alt="Diplomatica Embassies - Explore, Connect, Represent"
+                width={1200}
+                height={378}
+                priority
+                className={cn(
+                  "w-auto transition-all duration-300",
+                  compact ? "h-[32px] sm:h-[36px] xl:h-[42px]" : "h-[36px] sm:h-[40px] xl:h-[46px]"
+                )}
+              />
+            </Link>
+
+            <div className="hidden items-center gap-1.5 lg:flex xl:gap-3">
+              <nav aria-label="Main navigation">
+                <ul className="relative flex items-center gap-0.5 xl:gap-1">
+                  {nav.map((item) => {
+                    const active = isActive(item.href);
+                    return (
+                      <li key={item.href} className="relative">
+                        <Link
+                          href={item.href}
+                          className={cn(
+                            "group relative z-10 block whitespace-nowrap px-1.5 py-1 font-sans text-[14px] font-semibold uppercase tracking-tight transition-colors duration-300 xl:px-3 xl:py-1.5 xl:font-mono xl:tracking-[0.05em]",
+                            active ? "text-[#f0d78c]" : "text-[#0a1a3d] hover:text-[#b98a28]",
+                          )}
+                        >
+                          <RollText>{item.label}</RollText>
+                        </Link>
+                        {active ? (
+                          <motion.span layoutId="nav-active" transition={SPRING} className="absolute inset-0 rounded-lg bg-[#0a1a3d] shadow-[0_4px_14px_rgba(6,15,39,0.35)]">
+                            <span className="absolute inset-x-2 bottom-[3px] h-px bg-gradient-to-r from-transparent via-[#e2bd5c] to-transparent xl:inset-x-3" />
+                          </motion.span>
+                        ) : null}
+                      </li>
+                    );
+                  })}
+                </ul>
+              </nav>
+
+              {contact.phone ? (
+                <div className="flex shrink-0 items-center">
+                  <a
+                    href={contact.phoneHref}
+                    aria-label={`Call us: ${contact.phone}`}
+                    className="group relative inline-flex h-[36px] items-center gap-1.5 overflow-hidden rounded-xl bg-[#0a1a3d] px-2.5 text-[#f0d78c] shadow-sm transition-all duration-300 hover:bg-[#e2bd5c] hover:text-[#060f27] xl:h-[40px] xl:gap-2 xl:px-3.5"
+                  >
+                    <span className="grid h-5 w-5 shrink-0 place-items-center rounded-lg bg-[#f0d78c]/15 text-[#f0d78c] transition-colors group-hover:bg-[#060f27]/15 group-hover:text-[#060f27] xl:h-5.5 xl:w-5.5">
+                      <Phone className="h-3 w-3 stroke-[2.2]" />
+                    </span>
+                    <span className="whitespace-nowrap font-sans text-[14px] font-bold tracking-tight xl:font-mono">
+                      {contact.phone}
+                    </span>
+                  </a>
+                </div>
+              ) : null}
+            </div>
+
+            <div className="flex items-center gap-2 lg:hidden">
+              {/* Mobile hamburger menu */}
+              <button
+                type="button"
+                onClick={() => setOpen((v) => !v)}
+                aria-label={open ? "Close menu" : "Open menu"}
+                aria-expanded={open}
+                className="grid h-9 w-9 place-items-center rounded-lg border border-[#0a1a3d]/15 bg-white text-[#0a1a3d] transition-colors hover:bg-gray-100 sm:h-10 sm:w-10"
+              >
+                <Menu className="h-4.5 w-4.5" />
+              </button>
+            </div>
           </div>
         </div>
       </header>

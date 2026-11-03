@@ -47,16 +47,28 @@ export default async function SinglePage() {
 
       <div id="about" className="scroll-mt-[72px] lg:scroll-mt-[88px]">
         <About data={home.about} />
+      </div>
+
+      {/* Standalone Stats counter band with balanced top margin matching the bottom space */}
+      <div id="stats" className="scroll-mt-[72px] mt-8 sm:mt-10 lg:mt-10 lg:scroll-mt-[88px]">
         <Stats />
       </div>
 
+      {/* Diplomatica Services section */}
       <div id="services" className="scroll-mt-[72px] lg:scroll-mt-[88px]">
         <ServicesBento intro={home.services} counselling={services.counselling} />
+      </div>
+
+      {/* Standalone Process Timeline section */}
+      <div id="process" className="scroll-mt-[72px] lg:scroll-mt-[88px]">
         <ProcessTimeline intro={home.process} steps={steps} />
       </div>
 
       <div id="visa" className="scroll-mt-[72px] lg:scroll-mt-[88px]">
         <VisaAccordion sections={visaSections} />
+      </div>
+
+      <div id="testimonials" className="scroll-mt-[72px] lg:scroll-mt-[88px]">
         <Testimonials intro={home.testimonials} items={testimonials} />
       </div>
 

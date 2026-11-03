@@ -12,7 +12,7 @@ export function ContactBand({ contact }: { contact: SiteData["contact"] }) {
   ];
 
   return (
-    <section className="relative bg-transparent py-10 lg:py-12">
+    <section className="relative bg-transparent py-8 sm:py-10 lg:py-10">
       <div className="mx-auto w-full max-w-[1320px] px-4 sm:px-6 lg:px-10">
         <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-14">
           <Reveal direction="left" className="flex flex-col justify-center">

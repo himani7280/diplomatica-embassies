@@ -34,10 +34,10 @@ export function Faq({ data }: FaqProps) {
   const current = pairs[activePair] || pairs[0];
 
   return (
-    <section className="relative overflow-hidden bg-transparent pt-3 pb-8 sm:pt-4 sm:pb-10 lg:pt-5 lg:pb-12">
+    <section className="relative overflow-hidden bg-transparent">
       {/* 100% Full-Width Edge-to-Edge Container */}
       <div className="w-full">
-        <div className="group relative overflow-hidden border-y border-white/15 py-10 px-4 sm:py-14 sm:px-6 lg:py-16 lg:px-10">
+        <div className="group relative overflow-hidden border-y border-white/15 py-8 px-4 sm:py-10 sm:px-6 lg:py-10 lg:px-10">
           {/* High-Resolution Luxury Embassy Hall Background Image */}
           <div className="absolute inset-0 -z-10">
             <Image
