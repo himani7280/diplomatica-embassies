@@ -114,19 +114,18 @@ export function Header({ nav, contact }: HeaderProps) {
 
             {contact.phone ? (
               <div className="flex shrink-0 items-center">
-                {/* Standalone phone button: Golden by default, Blue on hover */}
+                {/* Standalone phone button: White pill matching logo and nav */}
                 <a
                   href={contact.phoneHref}
                   aria-label={`Call us: ${contact.phone}`}
-                  className="group relative inline-flex h-[38px] items-center gap-1.5 overflow-hidden rounded-xl bg-gradient-to-r from-[#e2bd5c] via-[#f0d78c] to-[#e2bd5c] px-2.5 text-[#060f27] shadow-[0_10px_30px_-12px_rgba(185,138,40,0.6)] ring-1 ring-[#b98a28]/60 transition-all duration-500 hover:bg-[#0a1a3d] hover:bg-none hover:text-[#f0d78c] hover:ring-[#e2bd5c]/40 xl:h-[46px] xl:gap-2 xl:px-4"
+                  className="group relative inline-flex h-[38px] items-center gap-1.5 overflow-hidden rounded-xl bg-white px-2.5 text-[#0a1a3d] shadow-[0_10px_35px_-14px_rgba(0,0,0,0.5)] ring-1 ring-black/5 backdrop-blur-md transition-all duration-300 hover:bg-[#0a1a3d] hover:text-[#f0d78c] hover:shadow-[0_12px_30px_-10px_rgba(6,15,39,0.7)] xl:h-[46px] xl:gap-2 xl:px-4"
                 >
-                  <span className="grid h-5.5 w-5.5 shrink-0 place-items-center rounded-lg bg-[#060f27]/15 text-[#060f27] transition-colors group-hover:bg-[#e2bd5c]/20 group-hover:text-[#f0d78c] xl:h-6 xl:w-6">
+                  <span className="grid h-5.5 w-5.5 shrink-0 place-items-center rounded-lg bg-[#0a1a3d] text-[#f0d78c] transition-colors group-hover:bg-[#e2bd5c] group-hover:text-[#060f27] xl:h-6 xl:w-6">
                     <Phone className="h-3 w-3 stroke-[2.2] xl:h-3.5 xl:w-3.5" />
                   </span>
                   <span className="whitespace-nowrap font-sans text-[14px] font-bold tracking-tight xl:font-mono">
                     {contact.phone}
                   </span>
-                  <span aria-hidden="true" className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
                 </a>
               </div>
             ) : null}
@@ -160,7 +159,7 @@ export function Header({ nav, contact }: HeaderProps) {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", stiffness: 320, damping: 32 }}
-              className="fixed inset-y-0 right-0 z-[90] flex w-full max-w-[360px] flex-col justify-between bg-[#fdfcf9] p-6 shadow-2xl"
+              className="fixed inset-y-0 right-0 z-[90] flex w-full max-w-[360px] flex-col justify-between bg-white p-6 shadow-2xl"
             >
               <div>
                 <div className="flex items-center justify-between border-b border-[#0a1a3d]/10 pb-4">
@@ -169,7 +168,7 @@ export function Header({ nav, contact }: HeaderProps) {
                     type="button"
                     onClick={() => setOpen(false)}
                     aria-label="Close menu"
-                    className="grid h-10 w-10 place-items-center rounded-lg border border-[#0a1a3d]/10 text-[#0a1a3d] transition-colors hover:bg-black/5"
+                    className="grid h-10 w-10 place-items-center rounded-lg border border-[#0a1a3d]/10 bg-white text-[#0a1a3d] transition-colors hover:bg-gray-50"
                   >
                     <X className="h-5 w-5" />
                   </button>
@@ -203,12 +202,14 @@ export function Header({ nav, contact }: HeaderProps) {
                 {contact.phone ? (
                   <a
                     href={contact.phoneHref}
-                    className="flex items-center gap-3 rounded-xl border border-[#e2bd5c]/40 bg-[#0a1a3d] p-3 text-[#f0d78c] shadow-sm"
+                    className="flex items-center gap-3 rounded-xl border border-[#0a1a3d]/10 bg-white p-3 text-[#0a1a3d] shadow-sm transition-colors hover:bg-gray-50"
                   >
-                    <Phone className="h-4 w-4" />
+                    <span className="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-[#0a1a3d] text-[#f0d78c]">
+                      <Phone className="h-4 w-4" />
+                    </span>
                     <div>
-                      <span className="block text-[14px] text-white/60">Direct Consular Line</span>
-                      <span className="font-mono text-[14px] font-bold">{contact.phone}</span>
+                      <span className="block text-[14px] text-[#0a1a3d]/60">Direct Consular Line</span>
+                      <span className="font-mono text-[14px] font-bold text-[#0a1a3d]">{contact.phone}</span>
                     </div>
                   </a>
                 ) : null}
