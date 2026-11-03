@@ -25,6 +25,12 @@ export interface SiteData {
   };
   social: { name: "Facebook" | "Instagram" | "LinkedIn"; href: string }[];
   legal: NavLink[];
+  copyright?: {
+    allRightsReserved: string;
+    poweredByText: string;
+    poweredByCompany: string;
+    poweredByUrl: string;
+  };
 }
 
 export interface HomeData {
@@ -264,6 +270,10 @@ export interface FaqData {
   titleAccent: string;
   text: string;
   bgImage?: string;
+  topicLabel?: string;
+  sparkle?: string;
+  qBadge?: string;
+  aBadge?: string;
   items: FaqItem[];
 }
 
@@ -342,6 +352,12 @@ export const getSite = async (): Promise<SiteData> => ({
   contact: chrome.DiplomaticaFooter1.contact,
   social: chrome.DiplomaticaFooter1.social as SiteData["social"],
   legal: chrome.DiplomaticaFooter1.legal.map(toAnchor),
+  copyright: (chrome.DiplomaticaFooter1 as { copyright?: SiteData["copyright"] }).copyright ?? {
+    allRightsReserved: "All Rights Reserved.",
+    poweredByText: "Powered by",
+    poweredByCompany: "Lestow",
+    poweredByUrl: "https://lestow.com",
+  },
 });
 
 export const getHome = async (): Promise<HomeData> => ({
@@ -386,3 +402,133 @@ export const getNews = async (): Promise<NewsPost[]> =>
 
 export const getNewsBySlug = async (slug?: string): Promise<NewsPost | undefined> =>
   (await getNews()).find((post) => post.slug === slug);
+
+export interface NotFoundData {
+  code: string;
+  title: string;
+  text: string;
+  homeButton: NavLink;
+  contactLink: NavLink;
+}
+
+export const getNotFound = async (): Promise<NotFoundData> =>
+  ((rawData as unknown as { notFound?: NotFoundData }).notFound ?? {
+    code: "404",
+    title: "This page took a different flight",
+    text: "The page you are looking for does not exist or has moved. Let us get you back on track.",
+    homeButton: { label: "Back to Home", href: "/#home" },
+    contactLink: { label: "Contact our team", href: "/#contact" },
+  });
+
+export interface ContactFormData {
+  eyebrow: string;
+  title: string;
+  titleAccent: string;
+  placeholders: {
+    name: string;
+    email: string;
+    phone: string;
+    subject: string;
+    message: string;
+  };
+  buttons: {
+    submit: string;
+    submitting: string;
+  };
+  errors: {
+    name: string;
+    email: string;
+    phone: string;
+    subject: string;
+    message: string;
+  };
+  success: {
+    title: string;
+    text: string;
+  };
+}
+
+export interface ContactPageData {
+  info: SiteData["contact"];
+  form: ContactFormData;
+}
+
+export const getContactPage = async (): Promise<ContactPageData> =>
+  sections.ContactPage.variants.DiplomaticaContactPage1 as unknown as ContactPageData;
+
+export const getPageBannerConfig = async () =>
+  ((rawData as unknown as { pageBanner?: { homeLabel: string; homeHref: string; bgImage: string } }).pageBanner ?? {
+    homeLabel: "Home",
+    homeHref: "/#home",
+    bgImage: "/img/banner-bg.webp",
+  });
+
+function cn(...classes: Array<string | false | null | undefined>): string {
+  return classes.filter(Boolean).join(" ");
+}
+
+export interface ButtonStyleOptions {
+  size?: "md" | "lg";
+  variant?: "gold" | "outline" | "navy";
+  className?: string;
+}
+
+export function buttonClasses({ size = "md", variant = "gold", className }: ButtonStyleOptions = {}): string {
+  return cn(
+    "group relative inline-flex items-center justify-center gap-3 overflow-hidden rounded-md",
+    "font-medium transition-all duration-300 hover:-translate-y-0.5",
+    variant === "gold"
+      ? "bg-gradient-to-b from-[#e2bd5c] to-[#b98a28] text-[#060f27] shadow-[0_12px_30px_-10px_rgba(185,138,40,0.6)] hover:shadow-[0_16px_34px_-10px_rgba(185,138,40,0.65)]"
+      : variant === "navy"
+        ? "bg-[#060f27] text-[#f0d78c] shadow-[0_14px_34px_-12px_rgba(6,15,39,0.7)] hover:bg-[#0a1a3d]"
+        : "border border-[#e2bd5c]/60 bg-white/5 text-white backdrop-blur hover:border-[#e2bd5c] hover:bg-white/10",
+    "focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#b4841f]/30",
+    size === "lg" ? "px-7 py-4 text-base" : "px-5 py-3 text-[15px]",
+    className,
+  );
+}
+
+/** Id of the section currently crossing the reading line, or null off the single page. */
+export const sectionId = (href: string): string | undefined => href.split("#")[1];
+
+export function useActiveSection(ids: readonly string[]): string | null {
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
+  const React = require("react") as typeof import("react");
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
+  const { usePathname } = require("next/navigation") as typeof import("next/navigation");
+
+  const pathname = usePathname();
+  const [active, setActive] = React.useState<string | null>(null);
+  const idsKey = ids.join(",");
+
+  React.useEffect(() => {
+    if (pathname !== "/") {
+      setActive(null);
+      return;
+    }
+
+    const elements = idsKey
+      .split(",")
+      .map((id) => document.getElementById(id))
+      .filter((el): el is HTMLElement => el !== null);
+    if (elements.length === 0) return;
+
+    const visible = new Map<string, number>();
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) visible.set(entry.target.id, entry.boundingClientRect.top);
+          else visible.delete(entry.target.id);
+        }
+        const first = elements.find((el) => visible.has(el.id));
+        setActive((prev) => (first ? first.id : prev));
+      },
+      { rootMargin: "-30% 0px -60% 0px" },
+    );
+
+    elements.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, [pathname, idsKey]);
+
+  return active;
+}

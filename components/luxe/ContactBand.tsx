@@ -1,10 +1,16 @@
 import { Mail, MapPin, Phone } from "lucide-react";
-import type { SiteData } from "@/data/siteData";
+import type { ContactFormData, SiteData } from "@/data/siteData";
 import { ContactForm } from "@/components/sections/ContactForm";
 import { Reveal } from "@/components/motion/Reveal";
 import { LuxHeading } from "./LuxHeading";
 
-export function ContactBand({ contact }: { contact: SiteData["contact"] }) {
+export function ContactBand({
+  contact,
+  form,
+}: {
+  contact: SiteData["contact"];
+  form?: ContactFormData;
+}) {
   const rows = [
     { icon: Phone, label: "Call Us", value: contact.phone, href: contact.phoneHref },
     { icon: Mail, label: "Email Us", value: contact.email, href: `mailto:${contact.email}` },
@@ -40,12 +46,15 @@ export function ContactBand({ contact }: { contact: SiteData["contact"] }) {
 
           <Reveal direction="right" className="flex">
             <div className="flex w-full flex-col rounded-xl bg-[#0a1a3d] p-5 sm:p-7">
-              <p className="text-[14px] font-semibold uppercase tracking-[0.2em] text-[#f0d78c]">Send Us a Message</p>
+              <p className="text-[14px] font-semibold uppercase tracking-[0.2em] text-[#f0d78c]">
+                {form?.eyebrow ?? "Send Us a Message"}
+              </p>
               <h3 className="mt-1 font-[family-name:Playfair_Display,Georgia,serif] text-xl font-bold text-white sm:text-2xl">
-                We&rsquo;d Love to <span className="text-[#e2bd5c]">Hear from You</span>
+                {form?.title ?? "We’d Love to"}{" "}
+                <span className="text-[#e2bd5c]">{form?.titleAccent ?? "Hear from You"}</span>
               </h3>
               <div className="mt-4 flex-1 rounded-lg bg-[#faf7f0] p-4 sm:p-5">
-                <ContactForm />
+                <ContactForm data={form} />
               </div>
             </div>
           </Reveal>

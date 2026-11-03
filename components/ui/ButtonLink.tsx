@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { buttonClasses } from "./buttonStyles";
+import { buttonClasses } from "@/data/siteData";
 
 interface ButtonLinkProps {
   href: string;

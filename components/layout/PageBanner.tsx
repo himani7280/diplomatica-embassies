@@ -8,9 +8,18 @@ import { PlaneTrail } from "@/components/ui/PlaneTrail";
 interface PageBannerProps {
   title: string;
   crumb?: string;
+  homeLabel?: string;
+  homeHref?: string;
+  bgImage?: string;
 }
 
-export function PageBanner({ title, crumb }: PageBannerProps) {
+export function PageBanner({
+  title,
+  crumb,
+  homeLabel = "Home",
+  homeHref = "/#home",
+  bgImage = "/img/banner-bg.webp",
+}: PageBannerProps) {
   return (
     <section className="relative isolate overflow-hidden bg-[#0a1a3d]">
       <motion.div
@@ -20,7 +29,7 @@ export function PageBanner({ title, crumb }: PageBannerProps) {
         transition={{ duration: 9, ease: "easeOut" }}
       >
         <Image
-          src="/img/banner-bg.webp"
+          src={bgImage}
           alt=""
           fill
           priority
@@ -48,8 +57,8 @@ export function PageBanner({ title, crumb }: PageBannerProps) {
           transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
           className="mt-3 flex items-center justify-center gap-2 text-[15px] lg:justify-start"
         >
-          <Link href="/" className="text-white/65 transition-colors hover:text-white">
-            Home
+          <Link href={homeHref} className="text-white/65 transition-colors hover:text-white">
+            {homeLabel}
           </Link>
           <span className="text-white/65">/</span>
           <span className="text-white">{crumb ?? title}</span>

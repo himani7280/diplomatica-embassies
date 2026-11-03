@@ -4,10 +4,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { Mail, MapPin, Phone } from "lucide-react";
 import type { SiteData } from "@/data/siteData";
+import { sectionId, useActiveSection } from "@/data/siteData";
 import { FacebookIcon, InstagramIcon, LinkedinIcon } from "@/components/ui/SocialIcons";
 import { Reveal } from "@/components/motion/Reveal";
 import { Diamond, OrnamentRule } from "@/components/luxe/Ornaments";
-import { sectionId, useActiveSection } from "./useActiveSection";
 
 const SOCIAL_ICONS = {
   Facebook: FacebookIcon,
@@ -20,6 +20,12 @@ export function Footer({ site }: { site: SiteData }) {
   const year = new Date().getFullYear();
   const activeId = useActiveSection(site.quickLinks.flatMap((l) => sectionId(l.href) ?? []));
   const isActive = (href: string) => sectionId(href) === activeId;
+  const copyright = site.copyright ?? {
+    allRightsReserved: "All Rights Reserved.",
+    poweredByText: "Powered by",
+    poweredByCompany: "Lestow",
+    poweredByUrl: "https://lestow.com",
+  };
 
   const contactRows = [
     { icon: Phone, text: site.contact.phone, href: site.contact.phoneHref },
@@ -32,13 +38,13 @@ export function Footer({ site }: { site: SiteData }) {
       <div aria-hidden="true" className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#d3a63e] to-transparent" />
       <div aria-hidden="true" className="bg-[radial-gradient(rgba(10,26,61,0.12)_1px,transparent_1px)] bg-size-[24px_24px] absolute inset-0 opacity-40 [mask-image:linear-gradient(to_bottom,black,transparent_70%)]" />
 
-      <div className="relative mx-auto flex w-full max-w-[1320px] flex-col items-center px-4 py-8 text-center sm:px-6 sm:py-10 lg:px-10 lg:py-10">
+      <div className="relative mx-auto flex w-full max-w-[1320px] flex-col items-center px-3 py-8 text-center sm:px-6 sm:py-10 lg:px-10 lg:py-10">
         <Reveal>
-          <Link href="/#home" aria-label="Diplomatica Embassies - Home" className="inline-block">
+          <Link href="/#home" aria-label={`${site.brand.name} - ${site.quickLinks[0]?.label ?? "Home"}`} className="inline-block">
             <Image
               src="/img/logo-brand.webp"
               unoptimized
-              alt="Diplomatica Embassies - Explore, Connect, Represent"
+              alt={site.brand.name}
               width={1200}
               height={378}
               className="h-[52px] w-auto sm:h-[68px]"
@@ -66,18 +72,18 @@ export function Footer({ site }: { site: SiteData }) {
           </ul>
         </Reveal>
 
-        <Reveal delay={0.12}>
-          <ul className="mt-4 flex flex-wrap items-center justify-center gap-2 sm:gap-2.5">
+        <Reveal delay={0.12} className="w-full max-w-full">
+          <ul className="mt-4 flex w-full max-w-full flex-wrap items-center justify-center gap-2 sm:gap-2.5">
             {contactRows.map((r) => (
               <li key={r.text} className="max-w-full">
                 <a
                   href={r.href}
-                  className="group flex max-w-full items-center gap-2 rounded-2xl border border-[#e2bd5c]/50 bg-white/70 py-1.5 pl-2 pr-3.5 text-left text-[14px] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#d3a63e] hover:bg-white sm:rounded-full sm:gap-2.5 sm:py-1.5 sm:pl-1.5 sm:pr-4"
+                  className="group flex max-w-full items-start gap-2 rounded-2xl border border-[#e2bd5c]/50 bg-white/70 py-1.5 pl-2 pr-3 text-left text-[14px] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#d3a63e] hover:bg-white sm:items-center sm:rounded-full sm:gap-2.5 sm:py-1.5 sm:pl-1.5 sm:pr-4"
                 >
-                  <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-[#0a1a3d] text-[#f0d78c] sm:h-7 sm:w-7">
+                  <span className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-[#0a1a3d] text-[#f0d78c] sm:mt-0 sm:h-7 sm:w-7">
                     <r.icon className="h-3 w-3 stroke-[2] sm:h-3.5 sm:w-3.5" />
                   </span>
-                  <span className="leading-snug break-normal text-[14px] text-[#0a1a3d] sm:whitespace-nowrap">{r.text}</span>
+                  <span className="min-w-0 flex-1 leading-snug break-words text-[14px] text-[#0a1a3d] sm:whitespace-nowrap">{r.text}</span>
                 </a>
               </li>
             ))}
@@ -109,17 +115,12 @@ export function Footer({ site }: { site: SiteData }) {
           <p className="flex flex-wrap items-center justify-center gap-2 text-center">
             <Diamond className="h-1.5 w-1.5 text-[#e2bd5c] shrink-0" />
             <span>
-              © {year} {site.brand.name}. All Rights Reserved.{" "}
+              © {year} {site.brand.name}. {copyright.allRightsReserved}{" "}
               <span className="inline-block whitespace-nowrap">
-                Powered by{" "}
-                <a
-                  href="https://lestow.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-medium text-white/90 transition-colors hover:text-[#f0d78c] hover:underline"
-                >
-                  Lestow
-                </a>
+                {copyright.poweredByText}{" "}
+                <span className="font-medium text-white/90">
+                  {copyright.poweredByCompany}
+                </span>
               </span>
             </span>
           </p>

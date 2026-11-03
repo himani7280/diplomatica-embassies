@@ -69,7 +69,7 @@ export function VisaAccordion({ sections }: { sections: VisaSection[] }) {
                         }}
                         className="group/btn relative mt-2.5 inline-flex items-center gap-2 overflow-hidden rounded-xl bg-[#0a1a3d] px-4 py-2.5 text-[#f0d78c] shadow-[0_10px_30px_-12px_rgba(0,0,0,0.7)] ring-1 ring-[#e2bd5c]/40 transition-colors duration-500 hover:bg-[#e2bd5c] hover:text-[#060f27]"
                       >
-                        <span className="font-mono text-[14px] font-semibold uppercase tracking-[0.08em] whitespace-nowrap">
+                        <span className="font-sans text-[14px] font-semibold uppercase tracking-[0.08em] whitespace-nowrap">
                           Ask an Adviser
                         </span>
                         <ArrowUpRight className="h-4 w-4 shrink-0 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/btn:rotate-45" strokeWidth={2.2} />

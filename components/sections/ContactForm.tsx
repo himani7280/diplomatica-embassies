@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { AlertCircle, CheckCircle2, Loader2, Send } from "lucide-react";
+import type { ContactFormData } from "@/data/siteData";
 
 function cn(...classes: Array<string | false | null | undefined>): string {
   return classes.filter(Boolean).join(" ");
@@ -19,23 +20,52 @@ const EMPTY: Record<Field, string> = {
   message: "",
 };
 
+const DEFAULT_FORM: ContactFormData = {
+  eyebrow: "Send Us a Message",
+  title: "We’d Love to",
+  titleAccent: "Hear from You",
+  placeholders: {
+    name: "Full Name",
+    email: "Email Address",
+    phone: "Phone Number",
+    subject: "Subject",
+    message: "Your Message",
+  },
+  buttons: {
+    submit: "Send Message",
+    submitting: "Sending...",
+  },
+  errors: {
+    name: "Please enter your full name.",
+    email: "Please enter a valid email address.",
+    phone: "Please enter a valid phone number.",
+    subject: "Please add a subject.",
+    message: "Please write at least 10 characters.",
+  },
+  success: {
+    title: "Thank you! Your message has been sent successfully.",
+    text: "Our consular adviser team will review your enquiry and contact you within 24 hours.",
+  },
+};
+
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 const PHONE_RE = /^\+?[\d\s()-]{7,20}$/;
 
-function validate(v: Record<Field, string>): Errors {
+function validate(v: Record<Field, string>, errMsgs: ContactFormData["errors"]): Errors {
   const errors: Errors = {};
-  if (v.name.trim().length < 2) errors.name = "Please enter your full name.";
-  if (!EMAIL_RE.test(v.email.trim())) errors.email = "Please enter a valid email address.";
-  if (v.phone.trim() && !PHONE_RE.test(v.phone.trim())) errors.phone = "Please enter a valid phone number.";
-  if (v.subject.trim().length < 2) errors.subject = "Please add a subject.";
-  if (v.message.trim().length < 10) errors.message = "Please write at least 10 characters.";
+  if (v.name.trim().length < 2) errors.name = errMsgs.name;
+  if (!EMAIL_RE.test(v.email.trim())) errors.email = errMsgs.email;
+  if (v.phone.trim() && !PHONE_RE.test(v.phone.trim())) errors.phone = errMsgs.phone;
+  if (v.subject.trim().length < 2) errors.subject = errMsgs.subject;
+  if (v.message.trim().length < 10) errors.message = errMsgs.message;
   return errors;
 }
 
 const inputClass =
   "w-full rounded-md border border-[#0c2250]/15 bg-white px-3.5 text-[14px] text-[#0c2250] placeholder:text-[#666d82]/70 outline-none transition focus:border-[#b4841f] focus:ring-4 focus:ring-[#b4841f]/10";
 
-export function ContactForm() {
+export function ContactForm({ data }: { data?: ContactFormData }) {
+  const config = data ?? DEFAULT_FORM;
   const [values, setValues] = useState(EMPTY);
   const [errors, setErrors] = useState<Errors>({});
   const [status, setStatus] = useState<"idle" | "sending" | "sent">("idle");
@@ -59,7 +89,7 @@ export function ContactForm() {
       return;
     }
 
-    const found = validate(values);
+    const found = validate(values, config.errors);
     if (Object.keys(found).length > 0) {
       setErrors(found);
       setStatus("idle");
@@ -93,8 +123,8 @@ export function ContactForm() {
             className={cn(inputClass, "h-10 sm:h-10.5", errors.name && "border-[#b4841f]")}
             type="text"
             name="name"
-            placeholder="Full Name"
-            aria-label="Full Name"
+            placeholder={config.placeholders.name}
+            aria-label={config.placeholders.name}
             autoComplete="name"
             value={values.name}
             onChange={set("name")}
@@ -106,8 +136,8 @@ export function ContactForm() {
             className={cn(inputClass, "h-10 sm:h-10.5", errors.email && "border-[#b4841f]")}
             type="email"
             name="email"
-            placeholder="Email Address"
-            aria-label="Email Address"
+            placeholder={config.placeholders.email}
+            aria-label={config.placeholders.email}
             autoComplete="email"
             value={values.email}
             onChange={set("email")}
@@ -119,8 +149,8 @@ export function ContactForm() {
             className={cn(inputClass, "h-10 sm:h-10.5", errors.phone && "border-[#b4841f]")}
             type="tel"
             name="phone"
-            placeholder="Phone Number"
-            aria-label="Phone Number"
+            placeholder={config.placeholders.phone}
+            aria-label={config.placeholders.phone}
             autoComplete="tel"
             value={values.phone}
             onChange={set("phone")}
@@ -132,8 +162,8 @@ export function ContactForm() {
             className={cn(inputClass, "h-10 sm:h-10.5", errors.subject && "border-[#b4841f]")}
             type="text"
             name="subject"
-            placeholder="Subject"
-            aria-label="Subject"
+            placeholder={config.placeholders.subject}
+            aria-label={config.placeholders.subject}
             value={values.subject}
             onChange={set("subject")}
           />
@@ -145,8 +175,8 @@ export function ContactForm() {
         <textarea
           className={cn(inputClass, "min-h-[70px] resize-none py-2 text-[14px]", errors.message && "border-[#b4841f]")}
           name="message"
-          placeholder="Your Message"
-          aria-label="Your Message"
+          placeholder={config.placeholders.message}
+          aria-label={config.placeholders.message}
           rows={2}
           value={values.message}
           onChange={set("message")}
@@ -161,11 +191,11 @@ export function ContactForm() {
       >
         {status === "sending" ? (
           <>
-            <Loader2 className="h-4 w-4 animate-spin text-[#f0d78c]" /> Sending...
+            <Loader2 className="h-4 w-4 animate-spin text-[#f0d78c]" /> {config.buttons.submitting}
           </>
         ) : (
           <>
-            <span>Send Message</span>
+            <span>{config.buttons.submit}</span>
             <Send className="h-4 w-4 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/btn:translate-x-1 group-hover/btn:-translate-y-0.5" />
           </>
         )}
@@ -186,10 +216,10 @@ export function ContactForm() {
             <CheckCircle2 className="mt-0.5 h-6 w-6 shrink-0 text-emerald-600" strokeWidth={2} />
             <div className="flex-1">
               <p className="font-sans text-[15px] font-bold text-emerald-950">
-                Thank you! Your message has been sent successfully.
+                {config.success.title}
               </p>
               <p className="mt-0.5 text-[14px] text-emerald-800">
-                Our consular adviser team will review your enquiry and contact you within 24 hours.
+                {config.success.text}
               </p>
             </div>
             <button

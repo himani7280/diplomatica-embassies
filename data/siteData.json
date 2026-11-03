@@ -3,6 +3,24 @@
     "bodyBgColor": "#fdfcf9",
     "bodyBgClass": "bg-[#fdfcf9]"
   },
+  "notFound": {
+    "code": "404",
+    "title": "This page took a different flight",
+    "text": "The page you are looking for does not exist or has moved. Let us get you back on track.",
+    "homeButton": {
+      "label": "Back to Home",
+      "href": "/#home"
+    },
+    "contactLink": {
+      "label": "Contact our team",
+      "href": "/#contact"
+    }
+  },
+  "pageBanner": {
+    "homeLabel": "Home",
+    "homeHref": "/#home",
+    "bgImage": "/img/banner-bg.webp"
+  },
   "Diplomatica": {
     "templateComponents": {
       "template-1": {
@@ -267,7 +285,13 @@
                 "label": "Terms of Service",
                 "href": "/terms"
               }
-            ]
+            ],
+            "copyright": {
+              "allRightsReserved": "All Rights Reserved.",
+              "poweredByText": "Powered by",
+              "poweredByCompany": "Lestow",
+              "poweredByUrl": "https://lestow.com"
+            }
           }
         }
       },
@@ -922,6 +946,33 @@
               "replyTime": "We reply within 24 hours",
               "ctaPhone": "+1 00000 00000",
               "ctaPhoneHref": "tel:+10000000000"
+            },
+            "form": {
+              "eyebrow": "Send Us a Message",
+              "title": "We’d Love to",
+              "titleAccent": "Hear from You",
+              "placeholders": {
+                "name": "Full Name",
+                "email": "Email Address",
+                "phone": "Phone Number",
+                "subject": "Subject",
+                "message": "Your Message"
+              },
+              "buttons": {
+                "submit": "Send Message",
+                "submitting": "Sending..."
+              },
+              "errors": {
+                "name": "Please enter your full name.",
+                "email": "Please enter a valid email address.",
+                "phone": "Please enter a valid phone number.",
+                "subject": "Please add a subject.",
+                "message": "Please write at least 10 characters."
+              },
+              "success": {
+                "title": "Thank you! Your message has been sent successfully.",
+                "text": "Our consular adviser team will review your enquiry and contact you within 24 hours."
+              }
             }
           }
         }
@@ -1106,6 +1157,10 @@
             "eyebrow": "CONSULAR ADVISORY",
             "title": "FAQ",
             "titleAccent": "",
+            "topicLabel": "Topic:",
+            "sparkle": "✦",
+            "qBadge": "Q",
+            "aBadge": "A",
             "text": "Find answers to the most common questions regarding visa categories, document verification, interview preparation, and consular timelines.",
             "bgImage": "/img/faq-luxury-bg.webp",
             "items": [

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import {
+  getContactPage,
   getFaq,
   getHome,
   getServices,
@@ -26,7 +27,7 @@ export const metadata: Metadata = {
 };
 
 export default async function SinglePage() {
-  const [home, services, steps, testimonials, visaSections, whyChooseUs, faq, site] =
+  const [home, services, steps, testimonials, visaSections, whyChooseUs, faq, site, contactPage] =
     await Promise.all([
       getHome(),
       getServices(),
@@ -36,6 +37,7 @@ export default async function SinglePage() {
       getWhyChooseUs(),
       getFaq(),
       getSite(),
+      getContactPage(),
     ]);
 
   return (
@@ -83,7 +85,7 @@ export default async function SinglePage() {
       <CtaBand data={home.cta} contact={site.contact} />
 
       <div id="contact" className="scroll-mt-[72px] lg:scroll-mt-[88px]">
-        <ContactBand contact={site.contact} />
+        <ContactBand contact={site.contact} form={contactPage.form} />
       </div>
     </>
   );
