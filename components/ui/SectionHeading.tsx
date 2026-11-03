@@ -26,7 +26,7 @@ export function Eyebrow({
       <span className="h-[2px] w-9 bg-[#b4841f] sm:w-12" />
       <span
         className={cn(
-          "text-[12px] font-semibold uppercase tracking-[0.2em] sm:text-[13px]",
+          "text-[14px] font-semibold uppercase tracking-[0.16em]",
           light ? "text-white" : "text-[#0c2250]",
         )}
       >

@@ -50,7 +50,7 @@ export function LuxHeading({ eyebrow, title, accent, text, center = false, light
     <div className={cn(center && "mx-auto text-center", "max-w-[760px]", className)}>
       {eyebrow ? (
         <Reveal>
-          <div className={cn("flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-[0.16em] sm:gap-2.5 sm:text-[12px] sm:tracking-[0.22em]", center && "justify-center", light ? "text-[#f0d78c]" : "text-[#b98a28]")}>
+          <div className={cn("flex items-center gap-1.5 text-[14px] font-semibold uppercase tracking-[0.16em] sm:gap-2.5 sm:text-[14px] sm:tracking-[0.2em]", center && "justify-center", light ? "text-[#f0d78c]" : "text-[#b98a28]")}>
             <motion.span className="h-px min-w-3 w-4 shrink origin-right bg-current opacity-70 sm:w-8" initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }} transition={{ duration: 0.8, ease: EASE }} />
             <Diamond className="h-1.5 w-1.5 shrink-0 sm:h-2 sm:w-2" />
             <span className="shrink-0 whitespace-nowrap">{eyebrow}</span>

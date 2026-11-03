@@ -66,14 +66,14 @@ export function NewsMagazine({ posts }: { posts: NewsPost[] }) {
                       exit={{ opacity: 0, y: -8 }}
                       transition={{ duration: 0.35, ease: "easeOut" }}
                     >
-                      <time dateTime={featured.date} className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#f0d78c] sm:text-[12px]">
+                      <time dateTime={featured.date} className="text-[14px] font-semibold uppercase tracking-[0.16em] text-[#f0d78c]">
                         {formatDate(featured.date)}
                       </time>
 
                       <h3 className="mt-2 font-[family-name:Playfair_Display,Georgia,serif] text-[1.3rem] font-bold leading-tight text-white sm:text-[1.8rem] lg:text-[2.2rem]">
                         {featured.title} {featured.titleAccent}
                       </h3>
-                      <p className="mt-2 line-clamp-3 text-[13px] leading-relaxed text-white/85 sm:line-clamp-none sm:text-[14px] sm:leading-6 lg:text-[15px] lg:leading-7">
+                      <p className="mt-2 line-clamp-3 text-[14px] leading-relaxed text-white/85 sm:line-clamp-none sm:text-[15px] sm:leading-6 lg:text-[15px] lg:leading-7">
                         {featured.excerpt}
                       </p>
                     </motion.div>
@@ -112,11 +112,11 @@ export function NewsMagazine({ posts }: { posts: NewsPost[] }) {
                   </div>
                   <div className="min-w-0 flex-1">
                     <div className="flex items-center gap-2">
-                      <span className="text-[11px] font-bold uppercase tracking-wider text-[#e2bd5c]">
+                      <span className="text-[14px] font-bold uppercase tracking-wider text-[#e2bd5c]">
                         0{idx + 1}
                       </span>
                       <span className="text-[#0a1a3d]/30">•</span>
-                      <time dateTime={post.date} className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[#b98a28]">
+                      <time dateTime={post.date} className="text-[14px] font-semibold uppercase tracking-[0.14em] text-[#b98a28]">
                         {formatDate(post.date)}
                       </time>
                     </div>

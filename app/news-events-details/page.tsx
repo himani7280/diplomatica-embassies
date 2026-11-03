@@ -127,7 +127,7 @@ export default async function BlogDetailsPage({
                       />
                     </span>
                     <span>
-                      <time dateTime={new Date().toISOString()} className="block text-[13px] text-(color:--color-mute)">
+                      <time dateTime={new Date().toISOString()} className="block text-[14px] text-(color:--color-mute)">
                         {currentDate()}
                       </time>
                       <span

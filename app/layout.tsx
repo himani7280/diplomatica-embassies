@@ -39,7 +39,6 @@ export default async function RootLayout({
   return (
     <html lang="en" className="scroll-smooth motion-reduce:scroll-auto" suppressHydrationWarning>
       <head>
-        <script dangerouslySetInnerHTML={{ __html: "try{if(sessionStorage.getItem('dp-intro-seen')||location.pathname!=='/')document.documentElement.setAttribute('data-intro-seen','1')}catch(e){}" }} />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link

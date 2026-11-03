@@ -3,39 +3,39 @@
     "bodyBgColor": "#fdfcf9",
     "bodyBgClass": "bg-[#fdfcf9]"
   },
-  "Meridian": {
+  "Diplomatica": {
     "templateComponents": {
       "template-1": {
         "shared": {
-          "Header": "MeridianHeader1",
-          "Footer": "MeridianFooter1"
+          "Header": "DiplomaticaHeader1",
+          "Footer": "DiplomaticaFooter1"
         },
         "pages": {
           "home": {
             "components": [
               {
                 "key": "Hero",
-                "component": "MeridianHomeHero1"
+                "component": "DiplomaticaHomeHero1"
               },
               {
                 "key": "About",
-                "component": "MeridianAbout1"
+                "component": "DiplomaticaAbout1"
               },
               {
                 "key": "Services",
-                "component": "MeridianHomeServices1"
+                "component": "DiplomaticaHomeServices1"
               },
               {
                 "key": "Process",
-                "component": "MeridianProcess1"
+                "component": "DiplomaticaProcess1"
               },
               {
                 "key": "Testimonials",
-                "component": "MeridianTestimonials1"
+                "component": "DiplomaticaTestimonials1"
               },
               {
                 "key": "Cta",
-                "component": "MeridianCta1"
+                "component": "DiplomaticaCta1"
               }
             ]
           },
@@ -43,15 +43,15 @@
             "components": [
               {
                 "key": "Hero",
-                "component": "MeridianAboutHero1"
+                "component": "DiplomaticaAboutHero1"
               },
               {
                 "key": "About",
-                "component": "MeridianAbout1"
+                "component": "DiplomaticaAbout1"
               },
               {
                 "key": "Testimonials",
-                "component": "MeridianTestimonials1"
+                "component": "DiplomaticaTestimonials1"
               }
             ]
           },
@@ -59,11 +59,11 @@
             "components": [
               {
                 "key": "Hero",
-                "component": "MeridianServicesHero1"
+                "component": "DiplomaticaServicesHero1"
               },
               {
                 "key": "ServicesPage",
-                "component": "MeridianServicesPage1"
+                "component": "DiplomaticaServicesPage1"
               }
             ]
           },
@@ -71,11 +71,11 @@
             "components": [
               {
                 "key": "Hero",
-                "component": "MeridianServicesDetailHero1"
+                "component": "DiplomaticaServicesDetailHero1"
               },
               {
                 "key": "ServiceDetail",
-                "component": "MeridianServiceDetail1"
+                "component": "DiplomaticaServiceDetail1"
               }
             ]
           },
@@ -83,11 +83,11 @@
             "components": [
               {
                 "key": "Hero",
-                "component": "MeridianVisaHero1"
+                "component": "DiplomaticaVisaHero1"
               },
               {
                 "key": "VisaPassport",
-                "component": "MeridianVisaPassport1"
+                "component": "DiplomaticaVisaPassport1"
               }
             ]
           },
@@ -95,11 +95,11 @@
             "components": [
               {
                 "key": "Hero",
-                "component": "MeridianBlogHero1"
+                "component": "DiplomaticaBlogHero1"
               },
               {
                 "key": "News",
-                "component": "MeridianNews1"
+                "component": "DiplomaticaNews1"
               }
             ]
           },
@@ -107,11 +107,11 @@
             "components": [
               {
                 "key": "Hero",
-                "component": "MeridianBlogDetailHero1"
+                "component": "DiplomaticaBlogDetailHero1"
               },
               {
                 "key": "News",
-                "component": "MeridianNews1"
+                "component": "DiplomaticaNews1"
               }
             ]
           },
@@ -119,11 +119,11 @@
             "components": [
               {
                 "key": "Hero",
-                "component": "MeridianContactHero1"
+                "component": "DiplomaticaContactHero1"
               },
               {
                 "key": "ContactPage",
-                "component": "MeridianContactPage1"
+                "component": "DiplomaticaContactPage1"
               }
             ]
           },
@@ -131,11 +131,11 @@
             "components": [
               {
                 "key": "Hero",
-                "component": "MeridianPrivacyHero1"
+                "component": "DiplomaticaPrivacyHero1"
               },
               {
                 "key": "Legal",
-                "component": "MeridianPrivacy1"
+                "component": "DiplomaticaPrivacy1"
               }
             ]
           },
@@ -143,11 +143,11 @@
             "components": [
               {
                 "key": "Hero",
-                "component": "MeridianTermsHero1"
+                "component": "DiplomaticaTermsHero1"
               },
               {
                 "key": "Legal",
-                "component": "MeridianTerms1"
+                "component": "DiplomaticaTerms1"
               }
             ]
           }
@@ -157,7 +157,7 @@
     "sections": {
       "SiteChrome": {
         "variants": {
-          "MeridianHeader1": {
+          "DiplomaticaHeader1": {
             "brand": {
               "name": "Diplomatica Embassies",
               "tagline": "Explore · Connect · Represent. Your trusted partner for embassy, visa and consulate services worldwide."
@@ -180,16 +180,24 @@
                 "href": "/visa-passport"
               },
               {
-                "label": "News & Events",
-                "href": "/news-events"
+                "label": "Why Choose Us",
+                "href": "/why-choose-us"
+              },
+              {
+                "label": "FAQ",
+                "href": "/faq"
+              },
+              {
+                "label": "Contact Us",
+                "href": "/contact"
               }
             ],
             "cta": {
-              "label": "Book a Consultation",
+              "label": "Contact Us",
               "href": "/contact"
             }
           },
-          "MeridianFooter1": {
+          "DiplomaticaFooter1": {
             "brand": {
               "name": "Diplomatica Embassies",
               "tagline": "Explore · Connect · Represent. Your trusted partner for embassy, visa and consulate services worldwide."
@@ -212,8 +220,12 @@
                 "href": "/visa-passport"
               },
               {
-                "label": "News & Events",
-                "href": "/news-events"
+                "label": "Why Choose Us",
+                "href": "/why-choose-us"
+              },
+              {
+                "label": "FAQ",
+                "href": "/faq"
               },
               {
                 "label": "Contact Us",
@@ -261,7 +273,7 @@
       },
       "Hero": {
         "variants": {
-          "MeridianHomeHero1": {
+          "DiplomaticaHomeHero1": {
             "titleLine1": "Embassy & Visa",
             "titleAccent": "Experts",
             "eyebrow": "Explore · Connect · Represent",
@@ -280,38 +292,38 @@
               "Replies within 24 Hours"
             ]
           },
-          "MeridianAboutHero1": {
+          "DiplomaticaAboutHero1": {
             "title": "Our Mission"
           },
-          "MeridianServicesHero1": {
+          "DiplomaticaServicesHero1": {
             "title": "Consular Services"
           },
-          "MeridianServicesDetailHero1": {
+          "DiplomaticaServicesDetailHero1": {
             "title": "Service Details"
           },
-          "MeridianVisaHero1": {
+          "DiplomaticaVisaHero1": {
             "title": "Visa Desk"
           },
-          "MeridianBlogHero1": {
+          "DiplomaticaBlogHero1": {
             "title": "Press Room"
           },
-          "MeridianBlogDetailHero1": {
+          "DiplomaticaBlogDetailHero1": {
             "title": "Press Room"
           },
-          "MeridianContactHero1": {
+          "DiplomaticaContactHero1": {
             "title": "Contact Us"
           },
-          "MeridianPrivacyHero1": {
+          "DiplomaticaPrivacyHero1": {
             "title": "Privacy Policy"
           },
-          "MeridianTermsHero1": {
+          "DiplomaticaTermsHero1": {
             "title": "Terms of Service"
           }
         }
       },
       "About": {
         "variants": {
-          "MeridianAbout1": {
+          "DiplomaticaAbout1": {
             "eyebrow": "About Diplomatica",
             "title": "Your Bridge to",
             "titleLine2": "Embassies &",
@@ -323,23 +335,37 @@
             "pillars": [
               {
                 "title": "Explore",
-                "text": "Find the right visa route and timeline."
+                "text": "Find the right visa route and timeline.",
+                "icon": "compass"
               },
               {
                 "title": "Connect",
-                "text": "We liaise with embassies and consulates for you."
+                "text": "We liaise with embassies and consulates for you.",
+                "icon": "users"
               },
               {
                 "title": "Represent",
-                "text": "Your case, presented with precision and protocol."
+                "text": "Your case, presented with precision and protocol.",
+                "icon": "shield-check"
               }
-            ]
+            ],
+            "missionVision": {
+              "bgImage": "/img/about-1.webp",
+              "mission": {
+                "title": "OUR MISSION",
+                "text": "Empowering individuals, families and enterprises to traverse borders seamlessly through certified embassy protocol, transparent legal advocacy, and dedicated consular excellence."
+              },
+              "vision": {
+                "title": "OUR VISION",
+                "text": "To be the world’s most trusted diplomatic bridge, setting the global benchmark for ethical immigration advisory, fast-track consular representation, and seamless mobility."
+              }
+            }
           }
         }
       },
       "Services": {
         "variants": {
-          "MeridianHomeServices1": {
+          "DiplomaticaHomeServices1": {
             "eyebrow": "Our Diplomatica Services",
             "title": "Complete Embassy &",
             "titleAccent": "Consular Support",
@@ -353,7 +379,7 @@
       },
       "Process": {
         "variants": {
-          "MeridianProcess1": {
+          "DiplomaticaProcess1": {
             "section": {
               "eyebrow": "Our Process",
               "title": "Your Embassy Journey in Just",
@@ -398,7 +424,7 @@
       },
       "Testimonials": {
         "variants": {
-          "MeridianTestimonials1": {
+          "DiplomaticaTestimonials1": {
             "section": {
               "eyebrow": "Testimonials",
               "title": "Client",
@@ -436,7 +462,7 @@
       },
       "Cta": {
         "variants": {
-          "MeridianCta1": {
+          "DiplomaticaCta1": {
             "watermark": "touch",
             "titleLine1": "Let’s plan your",
             "titleAccent": "global journey",
@@ -448,7 +474,7 @@
       },
       "ServicesPage": {
         "variants": {
-          "MeridianServicesPage1": {
+          "DiplomaticaServicesPage1": {
             "highlights": [
               {
                 "id": 1,
@@ -546,7 +572,7 @@
       },
       "ServiceDetail": {
         "variants": {
-          "MeridianServiceDetail1": {
+          "DiplomaticaServiceDetail1": {
             "about": {
               "eyebrow": "About This Service",
               "title": "Embassy & Visa Advisory",
@@ -661,7 +687,7 @@
       },
       "VisaPassport": {
         "variants": {
-          "MeridianVisaPassport1": {
+          "DiplomaticaVisaPassport1": {
             "sections": [
               {
                 "id": 1,
@@ -728,7 +754,7 @@
       },
       "News": {
         "variants": {
-          "MeridianNews1": {
+          "DiplomaticaNews1": {
             "posts": [
               {
                 "id": 1,
@@ -884,7 +910,7 @@
       },
       "ContactPage": {
         "variants": {
-          "MeridianContactPage1": {
+          "DiplomaticaContactPage1": {
             "info": {
               "phone": "+1 00000 00000",
               "phoneHref": "tel:+10000000000",
@@ -902,7 +928,7 @@
       },
       "Legal": {
         "variants": {
-          "MeridianPrivacy1": {
+          "DiplomaticaPrivacy1": {
             "eyebrow": "Privacy Policy",
             "title": "Your Privacy",
             "titleAccent": "Matters to Us",
@@ -950,7 +976,7 @@
               }
             ]
           },
-          "MeridianTerms1": {
+          "DiplomaticaTerms1": {
             "eyebrow": "Terms of Service",
             "title": "Terms for Using",
             "titleAccent": "Our Services",
@@ -998,6 +1024,120 @@
                 "body": [
                   "We may update these terms from time to time. The latest version will always be available on this page, and continued use of the website means you accept the changes."
                 ]
+              }
+            ]
+          }
+        }
+      },
+      "WhyChooseUs": {
+        "variants": {
+          "DiplomaticaWhyChooseUs1": {
+            "eyebrow": "Why Choose Us",
+            "title": "Why",
+            "titleAccent": "Choose Us",
+            "text": "Uncompromising diplomatic protocol, transparent consular advisory, and proven global immigration success.",
+            "columns": [
+              {
+                "id": 1,
+                "title": "Strong Support",
+                "tagline": "24/7 dedicated caseworkers guiding every application with official diplomatic protocol and care.",
+                "button": {
+                  "label": "LEARN MORE",
+                  "href": "/#services"
+                },
+                "image": "/img/art-1a.webp",
+                "alt": "Strong Support - Diplomatica consultation meeting"
+              },
+              {
+                "id": 2,
+                "title": "Proven Experience",
+                "tagline": "Over 25+ years of accredited consular advisory with a 99.4% visa approval record worldwide.",
+                "button": {
+                  "label": "LEARN MORE",
+                  "href": "/#about"
+                },
+                "image": "/img/art-1b.webp",
+                "alt": "Proven Experience - Accredited teamwork and document verification"
+              },
+              {
+                "id": 3,
+                "title": "Affordable Solutions",
+                "tagline": "100% transparent milestone pricing with zero hidden fees and ethical consular guidance.",
+                "button": {
+                  "label": "LEARN MORE",
+                  "href": "/#contact"
+                },
+                "image": "/img/affordable-solutions.webp",
+                "alt": "Affordable Solutions - Transparent pricing and ethical consular milestone agreement"
+              }
+            ],
+            "items": [
+              {
+                "id": 1,
+                "icon": "shield-check",
+                "number": "01",
+                "title": "Government Accredited Advisory",
+                "text": "Fully certified consular professionals registered with authorized international immigration councils and diplomatic bodies.",
+                "badge": "100% Accredited"
+              },
+              {
+                "id": 2,
+                "icon": "award",
+                "number": "02",
+                "title": "99.4% Visa Approval Rate",
+                "text": "Over 12,000+ successful visas processed with multi-stage documentation audit before official embassy submission.",
+                "badge": "Industry Leading"
+              },
+              {
+                "id": 3,
+                "icon": "zap",
+                "number": "03",
+                "title": "Fast-Track Consular Processing",
+                "text": "Direct embassy appointment liaison and expedited processing to meet urgent academic, corporate, and family deadlines.",
+                "badge": "Priority Slotting"
+              }
+            ]
+          }
+        }
+      },
+      "Faq": {
+        "variants": {
+          "DiplomaticaFaq1": {
+            "eyebrow": "CONSULAR ADVISORY",
+            "title": "FAQ",
+            "titleAccent": "",
+            "text": "Find answers to the most common questions regarding visa categories, document verification, interview preparation, and consular timelines.",
+            "bgImage": "/img/faq-luxury-bg.webp",
+            "items": [
+              {
+                "id": 1,
+                "question": "What documents are required to initiate an embassy visa consultation?",
+                "answer": "To get started, you will need a valid passport with at least 6 months validity, recent passport-size photographs, your educational or employment credentials, and proof of financial solvency. Our team provides an exact checklist customized to your specific destination country and visa type."
+              },
+              {
+                "id": 2,
+                "question": "How long does the visa approval process typically take?",
+                "answer": "Timelines depend on the destination country, visa category, and embassy caseload. Standard tourist and business visas typically take 10 to 20 working days, while study permits, residency, and citizenship by investment can range from 4 to 12 weeks. We also provide fast-track consular appointment assistance."
+              },
+              {
+                "id": 3,
+                "question": "Do you help with consular and embassy interview preparation?",
+                "answer": "Yes, absolutely. We conduct one-on-one mock interview sessions modeled strictly on official consular interview formats. Our former visa officers guide you on answering tricky questions, maintaining proper protocol, and presenting your supporting portfolio with complete confidence."
+              },
+              {
+                "id": 4,
+                "question": "What happens if a visa application has been rejected previously?",
+                "answer": "Previous refusals can be successfully appealed or reapplied with a rigorous refusal analysis. Our legal team pinpoints the exact cause of refusal, rectifies the deficiencies in documentation, and files a persuasive rebuttal letter directly addressing consular concerns."
+              },
+              {
+                "id": 5,
+                "question": "Are your immigration consultancy fees fixed or are there hidden costs?",
+                "answer": "Our fees are 100% transparent with fixed milestones. You will receive a formal agreement itemizing government embassy fees, biometric charges, apostille/translation costs, and advisory fees with zero unexpected surcharges."
+              },
+              {
+                "id": 6,
+                "question": "Do you assist with family reunification and dependent visas?",
+                "answer": "Yes, we specialize in spousal sponsorships, dependent child visas, and parent visas with end-to-end legalization, translation, apostille, and relationship documentation compilation."
               }
             ]
           }

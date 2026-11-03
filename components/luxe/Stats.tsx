@@ -30,7 +30,7 @@ export function Stats() {
                 <div className="bg-linear-to-b from-[#f6e3a1] to-[#d3a63e] bg-clip-text font-[family-name:Playfair_Display,Georgia,serif] text-4xl font-bold text-transparent sm:text-5xl lg:text-6xl">
                   <CountUp to={s.to} suffix={s.suffix} duration={2} />
                 </div>
-                <div className="mt-2 text-[12px] font-semibold uppercase tracking-[0.22em] text-white/75">{s.label}</div>
+                <div className="mt-2 text-[14px] font-semibold uppercase tracking-[0.18em] text-white/80">{s.label}</div>
               </div>
             </StaggerItem>
           ))}

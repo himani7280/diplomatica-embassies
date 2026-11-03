@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { ArrowUpRight } from "lucide-react";
 import type { VisaSection } from "@/data/siteData";
 import { Reveal } from "@/components/motion/Reveal";
 import { LuxHeading } from "./LuxHeading";
@@ -48,15 +49,14 @@ export function VisaAccordion({ sections }: { sections: VisaSection[] }) {
                   <Image src={s.image} alt={s.alt} fill sizes="(min-width: 1024px) 700px, 100vw" className={cn("object-cover transition-transform duration-[1200ms] ease-out", open ? "scale-100" : "scale-110")} />
                   <div className={cn("absolute inset-0 transition-opacity duration-700", open ? "bg-gradient-to-t from-[#060f27] via-[#060f27]/35 to-transparent" : "bg-[#060f27]/55")} />
 
-                  <div className={cn("absolute inset-0 flex items-center gap-3 px-5 transition-opacity duration-500 lg:flex-col lg:justify-end lg:gap-4 lg:px-0 lg:pb-7", open ? "pointer-events-none opacity-0" : "opacity-100 delay-300")}>
-                    <span className="font-[family-name:Playfair_Display,Georgia,serif] text-2xl font-bold text-[#e2bd5c]">0{i + 1}</span>
-                    <span className="whitespace-nowrap text-[12px] font-semibold uppercase tracking-[0.22em] text-white lg:rotate-180 lg:[writing-mode:vertical-rl]">{s.eyebrow}</span>
+                  <div className={cn("absolute inset-0 flex items-center justify-center px-5 transition-opacity duration-500 lg:flex-col lg:justify-end lg:px-0 lg:pb-7", open ? "pointer-events-none opacity-0" : "opacity-100 delay-300")}>
+                    <span className="whitespace-nowrap text-[14px] font-semibold uppercase tracking-[0.2em] text-white lg:rotate-180 lg:[writing-mode:vertical-rl]">{s.eyebrow}</span>
                   </div>
 
                   <div className={cn("absolute inset-x-0 bottom-0 flex max-h-full flex-col justify-end p-3.5 transition-all duration-700 sm:p-7", open ? "translate-y-0 opacity-100 delay-200" : "pointer-events-none translate-y-6 opacity-0")}>
-                    <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#f0d78c] sm:text-[12px]">0{i + 1} · {s.eyebrow}</p>
+                    <p className="text-[14px] font-semibold uppercase tracking-[0.2em] text-[#f0d78c]">{s.eyebrow}</p>
                     <h3 className="mt-1 max-w-[520px] font-[family-name:Playfair_Display,Georgia,serif] text-[1.25rem] font-bold leading-tight text-white sm:mt-2 sm:text-[1.8rem] lg:text-[2.2rem]">{headline(s)}</h3>
-                    <p className="mt-1.5 max-w-[460px] text-[12.5px] leading-snug text-white/85 sm:mt-2.5 sm:text-[15px] sm:leading-7">{s.text}</p>
+                    <p className="mt-1.5 max-w-[460px] text-[14px] leading-snug text-white/85 sm:mt-2.5 sm:text-[15px] sm:leading-7">{s.text}</p>
                     <div>
                       <a
                         href="#contact"
@@ -67,9 +67,13 @@ export function VisaAccordion({ sections }: { sections: VisaSection[] }) {
                             el.scrollIntoView({ behavior: "smooth" });
                           }
                         }}
-                        className="mt-2.5 inline-flex items-center rounded-full bg-gradient-to-b from-[#e2bd5c] to-[#b98a28] px-4 py-2 text-[12.5px] font-semibold text-[#060f27] shadow-[0_4px_16px_rgba(226,189,92,0.35)] transition-transform duration-300 hover:scale-105 sm:mt-4 sm:px-6 sm:py-2.5 sm:text-[14px]"
+                        className="group/btn relative mt-2.5 inline-flex items-center gap-2 overflow-hidden rounded-xl bg-[#0a1a3d] px-4 py-2.5 text-[#f0d78c] shadow-[0_10px_30px_-12px_rgba(0,0,0,0.7)] ring-1 ring-[#e2bd5c]/40 transition-colors duration-500 hover:bg-[#e2bd5c] hover:text-[#060f27]"
                       >
-                        Ask an Adviser
+                        <span className="font-mono text-[14px] font-semibold uppercase tracking-[0.08em] whitespace-nowrap">
+                          Ask an Adviser
+                        </span>
+                        <ArrowUpRight className="h-4 w-4 shrink-0 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/btn:rotate-45" strokeWidth={2.2} />
+                        <span aria-hidden="true" className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-700 group-hover/btn:translate-x-full" />
                       </a>
                     </div>
                   </div>

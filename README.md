@@ -1,4 +1,4 @@
-# The Meridian - Immigration & Visa Consultancy
+# Diplomatica Embassies - Immigration & Visa Consultancy
 
 Next.js (App Router) + TypeScript + Tailwind CSS + Framer Motion, with a JSON file "database".
 
@@ -30,7 +30,7 @@ Images live in `public/img/` (`logo.png`, `logo-w.png`, ... exactly like the ori
 ## Folder structure
 
 ```
-meridian-embassy/
+diplomatica-embassy/
 ├─ db/                     JSON database (edit content here)
 │  ├─ site.json            brand, menu, contact details, footer links, social
 │  ├─ home.json            hero / about / section headings / CTA copy

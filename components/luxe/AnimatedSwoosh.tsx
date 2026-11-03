@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+// Gold accent curves for hero banner
 
 const PATHS = [
   { d: "M-40 520 C 260 380, 520 560, 820 330 S 1180 60, 1260 20", width: 3, opacity: 0.9, delay: 0.3 },
@@ -20,15 +20,12 @@ export function AnimatedSwoosh({ className, play = true }: { className?: string;
         </linearGradient>
       </defs>
       {PATHS.map((p) => (
-        <motion.path
+        <path
           key={p.d}
           d={p.d}
           stroke="url(#sw-anim)"
           strokeWidth={p.width}
           opacity={p.opacity}
-          initial={{ pathLength: 0 }}
-          animate={{ pathLength: play ? 1 : 0 }}
-          transition={{ duration: 2.4, delay: p.delay, ease: [0.22, 1, 0.36, 1] }}
         />
       ))}
     </svg>

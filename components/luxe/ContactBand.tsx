@@ -29,7 +29,7 @@ export function ContactBand({ contact }: { contact: SiteData["contact"] }) {
                       <r.icon className="h-4.5 w-4.5" strokeWidth={1.8} />
                     </span>
                     <span className="min-w-0">
-                      <span className="block text-[11px] font-semibold uppercase tracking-[0.18em] text-[#b98a28]">{r.label}</span>
+                      <span className="block text-[14px] font-semibold uppercase tracking-[0.16em] text-[#b98a28]">{r.label}</span>
                       <span className="block break-words text-[14px] font-medium text-[#0a1a3d] sm:text-[15px]">{r.value}</span>
                     </span>
                   </a>
@@ -40,7 +40,7 @@ export function ContactBand({ contact }: { contact: SiteData["contact"] }) {
 
           <Reveal direction="right" className="flex">
             <div className="flex w-full flex-col rounded-xl bg-[#0a1a3d] p-5 sm:p-7">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#f0d78c] sm:text-[12px]">Send Us a Message</p>
+              <p className="text-[14px] font-semibold uppercase tracking-[0.2em] text-[#f0d78c]">Send Us a Message</p>
               <h3 className="mt-1 font-[family-name:Playfair_Display,Georgia,serif] text-xl font-bold text-white sm:text-2xl">
                 We&rsquo;d Love to <span className="text-[#e2bd5c]">Hear from You</span>
               </h3>
@@ -51,17 +51,20 @@ export function ContactBand({ contact }: { contact: SiteData["contact"] }) {
           </Reveal>
         </div>
 
-        {/* Full-width Map */}
+        {/* Full-width Map styled with Diplomatica luxury theme colors */}
         <Reveal className="mt-8 lg:mt-10">
-          <div className="relative h-[220px] w-full overflow-hidden rounded-xl border border-[#0a1a3d]/10 bg-[#0a1a3d] shadow-[0_8px_30px_rgba(6,15,39,0.06)] sm:h-[260px] lg:h-[290px]">
+          <div className="relative h-[220px] w-full overflow-hidden rounded-xl border border-[#e2bd5c]/35 bg-[#060f27] shadow-[0_12px_40px_rgba(6,15,39,0.25)] sm:h-[260px] lg:h-[290px]">
             <iframe
               title="Map showing our office location"
               src={contact.mapEmbed}
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               allowFullScreen
-              className="absolute inset-0 h-full w-full border-0"
+              className="absolute inset-0 h-full w-full border-0 filter invert-[92%] hue-rotate-[185deg] contrast-[110%] brightness-[92%] saturate-[130%]"
             />
+            {/* Theme color gradient overlay */}
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#060f27]/40 via-transparent to-[#060f27]/20" />
+            <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-[#e2bd5c]/25 rounded-xl" />
           </div>
         </Reveal>
       </div>

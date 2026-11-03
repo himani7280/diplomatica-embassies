@@ -46,21 +46,14 @@ export function Hero({ data }: { data: HomeData["hero"] }) {
 
   return (
     <section className="relative isolate flex min-h-[520px] items-center justify-center overflow-hidden bg-[#060f27] pb-16 pt-28 sm:min-h-[580px] sm:pb-20 sm:pt-32 lg:min-h-[660px] lg:pb-24 lg:pt-36">
-      {/* Background Slides */}
+      {/* Background slide images */}
       <div aria-hidden="true" className="absolute inset-0 -z-[15]">
         {SLIDES.map((slide, i) => (
-          <motion.div
+          <div
             key={slide.backdrop}
-            className="absolute inset-0"
-            initial={false}
-            animate={{
-              opacity: i === index ? 0.45 : 0,
-              scale: i === index ? 1 : 1.1,
-            }}
-            transition={{
-              opacity: { duration: 1.6 },
-              scale: { duration: 8, ease: "linear" },
-            }}
+            className={`absolute inset-0 transition-opacity duration-1000 ${
+              i === index ? "opacity-45" : "opacity-0 pointer-events-none"
+            }`}
           >
             <Image
               src={slide.backdrop}
@@ -70,12 +63,12 @@ export function Hero({ data }: { data: HomeData["hero"] }) {
               sizes="100vw"
               className="object-cover mix-blend-luminosity"
             />
-          </motion.div>
+          </div>
         ))}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_45%,rgba(6,15,39,0.7),rgba(6,15,39,0.95)_75%)]" />
       </div>
 
-      {/* Radial ambient lighting */}
+      {/* Ambient lighting */}
       <div
         aria-hidden="true"
         className="absolute inset-0 -z-20 bg-[radial-gradient(ellipse_at_50%_35%,rgba(36,74,154,0.45),transparent_65%),radial-gradient(ellipse_at_50%_90%,rgba(185,138,40,0.18),transparent_55%),linear-gradient(180deg,#060f27,#0a1a3d_60%,#060f27)]"
@@ -83,21 +76,21 @@ export function Hero({ data }: { data: HomeData["hero"] }) {
 
       <AnimatedSwoosh play={ready} className="absolute inset-x-0 bottom-0 -z-10 h-[70%] w-full" />
 
-      {/* Centered Short Title Only */}
+      {/* Hero title */}
       <div className="relative z-10 mx-auto flex w-full max-w-[1000px] flex-col items-center px-4 text-center sm:px-6 lg:px-8">
         <AnimatePresence mode="wait">
           <motion.div
             key={index}
-            initial={{ opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -14 }}
-            transition={{ duration: 0.6, ease: EASE }}
+            initial={index === 0 ? false : { opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5, ease: EASE }}
             className="flex flex-col items-center"
           >
-            <span className="inline-flex items-center gap-2 rounded-full border border-[#e2bd5c]/50 bg-[#060f27]/70 px-3.5 py-1.5 text-[10px] font-semibold tracking-[0.16em] text-[#f0d78c] shadow-[0_2px_12px_rgba(0,0,0,0.3)] backdrop-blur-md sm:gap-3 sm:px-5 sm:py-2 sm:text-[12px] sm:tracking-[0.22em]">
-              <Diamond className="h-1.5 w-1.5 shrink-0 text-[#e2bd5c] sm:h-2 sm:w-2" />
-              <span className="shrink-0 whitespace-nowrap">{current.eyebrow.toUpperCase()}</span>
-              <Diamond className="h-1.5 w-1.5 shrink-0 text-[#e2bd5c] sm:h-2 sm:w-2" />
+            <span className="inline-flex max-w-full items-center gap-2 rounded-full border border-[#e2bd5c]/50 bg-[#060f27]/80 px-3.5 py-1.5 text-center text-[14px] font-semibold tracking-[0.04em] text-[#f0d78c] shadow-[0_2px_12px_rgba(0,0,0,0.4)] backdrop-blur-md sm:gap-3 sm:px-5 sm:py-2 sm:tracking-[0.1em] md:tracking-[0.14em]">
+              <Diamond className="h-1.5 w-1.5 shrink-0 text-[#e2bd5c]" />
+              <span className="leading-tight break-normal">{current.eyebrow.toUpperCase()}</span>
+              <Diamond className="h-1.5 w-1.5 shrink-0 text-[#e2bd5c]" />
             </span>
 
             <h1 className="mt-4 font-[family-name:Playfair_Display,Georgia,serif] text-3xl font-bold leading-[1.08] tracking-tight text-white sm:mt-6 sm:text-5xl md:text-6xl lg:text-[4.6rem]">

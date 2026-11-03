@@ -71,32 +71,10 @@ export function ContactForm() {
 
   const fieldError = (f: Field) =>
     errors[f] ? (
-      <p role="alert" className="mt-1 text-[12px] text-[#b4841f]">
+      <p role="alert" className="mt-1 text-[14px] text-[#b4841f]">
         {errors[f]}
       </p>
     ) : null;
-
-  if (status === "sent") {
-    return (
-      <div role="status" className="flex flex-col items-start gap-4 py-6">
-        <span className="grid h-16 w-16 place-items-center rounded-full bg-emerald-100">
-          <CheckCircle2 className="h-8 w-8 text-emerald-600" strokeWidth={1.5} />
-        </span>
-        <h3 className="font-[family-name:Playfair_Display,Georgia,serif] text-2xl font-bold text-[#0c2250]">Thank you!</h3>
-        <p className="text-[#666d82]">
-          Your message has been received. Our team will get back to you within{" "}
-          <strong className="text-[#0c2250]">24 hours</strong>.
-        </p>
-        <button
-          type="button"
-          onClick={() => setStatus("idle")}
-          className="font-semibold text-[#b4841f] underline-offset-4 hover:underline"
-        >
-          Send another message
-        </button>
-      </div>
-    );
-  }
 
   return (
     <form onSubmit={onSubmit} noValidate className="space-y-2.5">
@@ -179,21 +157,52 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={status === "sending"}
-        className="group relative inline-flex items-center gap-2.5 overflow-hidden rounded-md bg-gradient-to-b from-[#e2bd5c] to-[#b98a28] px-6 py-2.5 text-sm font-semibold text-[#060f27] shadow-[0_8px_20px_-6px_rgba(185,138,40,0.5)] transition-all duration-300 hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-70 sm:text-base"
+        className="group/btn relative inline-flex items-center gap-2.5 overflow-hidden rounded-xl bg-[#0a1a3d] px-6 py-2.5 text-[14px] sm:text-[15px] font-semibold text-[#f0d78c] shadow-[0_10px_30px_-12px_rgba(0,0,0,0.7)] ring-1 ring-[#e2bd5c]/40 transition-colors duration-500 hover:bg-[#e2bd5c] hover:text-[#060f27] disabled:cursor-not-allowed disabled:opacity-70"
       >
         {status === "sending" ? (
           <>
-            <Loader2 className="h-4 w-4 animate-spin" /> Sending...
+            <Loader2 className="h-4 w-4 animate-spin text-[#f0d78c]" /> Sending...
           </>
         ) : (
           <>
-            Send Message
-            <Send className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-0.5" />
+            <span>Send Message</span>
+            <Send className="h-4 w-4 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/btn:translate-x-1 group-hover/btn:-translate-y-0.5" />
           </>
         )}
+        <span aria-hidden="true" className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-700 group-hover/btn:translate-x-full" />
       </button>
 
+      {/* Alert shown directly below the form on submit */}
       <AnimatePresence mode="wait">
+        {status === "sent" ? (
+          <motion.div
+            key="sent-alert"
+            role="alert"
+            initial={{ opacity: 0, y: 10, scale: 0.98 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -10 }}
+            className="mt-3 flex items-start gap-3 rounded-xl border border-emerald-500/40 bg-emerald-50/95 p-4 text-emerald-900 shadow-md backdrop-blur-sm"
+          >
+            <CheckCircle2 className="mt-0.5 h-6 w-6 shrink-0 text-emerald-600" strokeWidth={2} />
+            <div className="flex-1">
+              <p className="font-sans text-[15px] font-bold text-emerald-950">
+                Thank you! Your message has been sent successfully.
+              </p>
+              <p className="mt-0.5 text-[14px] text-emerald-800">
+                Our consular adviser team will review your enquiry and contact you within 24 hours.
+              </p>
+            </div>
+            <button
+              type="button"
+              onClick={() => setStatus("idle")}
+              aria-label="Dismiss alert"
+              className="text-[15px] font-bold text-emerald-700 hover:text-emerald-950 px-1"
+            >
+              ✕
+            </button>
+          </motion.div>
+        ) : null}
+
         {errors.form ? (
           <motion.div
             key="error"

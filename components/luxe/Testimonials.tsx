@@ -77,7 +77,7 @@ export function Testimonials({ intro, items }: { intro: HomeData["testimonials"]
                 </span>
                 <span>
                   <span className={cn("block text-sm font-semibold", i === index ? "text-white" : "text-white/70")}>{t.name}</span>
-                  <span className="block text-[12px] text-[#f0d78c]">{t.role}</span>
+                  <span className="block text-[14px] text-[#f0d78c]">{t.role}</span>
                 </span>
               </button>
             ))}

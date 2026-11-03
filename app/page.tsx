@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import {
+  getFaq,
   getHome,
-  getNews,
   getServices,
   getSite,
   getSteps,
   getTestimonials,
   getVisaSections,
+  getWhyChooseUs,
 } from "@/data/siteData";
 import { Hero } from "@/components/luxe/Hero";
 import { About } from "@/components/luxe/About";
@@ -15,7 +16,8 @@ import { ProcessTimeline } from "@/components/luxe/ProcessTimeline";
 import { VisaAccordion } from "@/components/luxe/VisaAccordion";
 import { Stats } from "@/components/luxe/Stats";
 import { Testimonials } from "@/components/luxe/Testimonials";
-import { NewsMagazine } from "@/components/luxe/NewsMagazine";
+import { WhyChooseUs } from "@/components/luxe/WhyChooseUs";
+import { Faq } from "@/components/luxe/Faq";
 import { CtaBand } from "@/components/luxe/CtaBand";
 import { ContactBand } from "@/components/luxe/ContactBand";
 
@@ -24,19 +26,22 @@ export const metadata: Metadata = {
 };
 
 export default async function SinglePage() {
-  const [home, services, steps, testimonials, visaSections, news, site] = await Promise.all([
-    getHome(),
-    getServices(),
-    getSteps(),
-    getTestimonials(),
-    getVisaSections(),
-    getNews(),
-    getSite(),
-  ]);
+  const [home, services, steps, testimonials, visaSections, whyChooseUs, faq, site] =
+    await Promise.all([
+      getHome(),
+      getServices(),
+      getSteps(),
+      getTestimonials(),
+      getVisaSections(),
+      getWhyChooseUs(),
+      getFaq(),
+      getSite(),
+    ]);
 
   return (
     <>
-      <div id="home" className="scroll-mt-[72px] lg:scroll-mt-[88px]">
+      {/* Home section without scroll-margin to prevent reload vertical shift */}
+      <div id="home" className="scroll-mt-0">
         <Hero data={home.hero} />
       </div>
 
@@ -55,8 +60,12 @@ export default async function SinglePage() {
         <Testimonials intro={home.testimonials} items={testimonials} />
       </div>
 
-      <div id="news" className="scroll-mt-[72px] lg:scroll-mt-[88px]">
-        <NewsMagazine posts={news} />
+      <div id="why-choose-us" className="scroll-mt-[72px] lg:scroll-mt-[88px]">
+        <WhyChooseUs data={whyChooseUs} />
+      </div>
+
+      <div id="faq" className="scroll-mt-[72px] lg:scroll-mt-[88px]">
+        <Faq data={faq} contact={site.contact} />
       </div>
 
       <CtaBand data={home.cta} contact={site.contact} />

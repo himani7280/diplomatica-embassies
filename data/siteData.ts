@@ -46,7 +46,14 @@ export interface HomeData {
     statValue: number;
     statSuffix: string;
     statLabel: string;
-    pillars: { title: string; text: string }[];
+    pillars: { title: string; text: string; icon?: string }[];
+    missionVision?: {
+      bgImage: string;
+      mission: { title: string; text: string };
+      vision: { title: string; text: string };
+    };
+    mission?: { title: string; text: string; image?: string };
+    vision?: { title: string; text: string; image?: string };
   };
   services: {
     eyebrow: string;
@@ -209,6 +216,57 @@ export interface ContactSubmission {
   id: string;
 }
 
+export interface WhyChooseUsItem {
+  id: number;
+  icon: string;
+  number: string;
+  title: string;
+  text: string;
+  badge: string;
+}
+
+export interface WhyChooseUsColumn {
+  id: number;
+  title: string;
+  tagline: string;
+  button: NavLink;
+  image: string;
+  alt: string;
+}
+
+export interface WhyChooseUsStat {
+  value: string;
+  label: string;
+}
+
+export interface WhyChooseUsData {
+  eyebrow: string;
+  titleLarge?: string;
+  titleSub?: string;
+  title?: string;
+  titleAccent?: string;
+  tagline?: string;
+  text?: string;
+  columns?: WhyChooseUsColumn[];
+  items?: WhyChooseUsItem[];
+  stats?: WhyChooseUsStat[];
+}
+
+export interface FaqItem {
+  id: number;
+  question: string;
+  answer: string;
+}
+
+export interface FaqData {
+  eyebrow: string;
+  title: string;
+  titleAccent: string;
+  text: string;
+  bgImage?: string;
+  items: FaqItem[];
+}
+
 export interface LegalContent {
   eyebrow: string;
   title: string;
@@ -233,26 +291,26 @@ export type PageBannerKey =
 
 /* ---------- JSON-backed content ---------- */
 
-const { Meridian } = rawData;
-const { sections } = Meridian;
+const { Diplomatica } = rawData;
+const { sections } = Diplomatica;
 const chrome = sections.SiteChrome.variants;
 const heroes = sections.Hero.variants;
 
 export const pageBanners: Record<PageBannerKey, PageBanner> = {
-  about: heroes.MeridianAboutHero1,
-  services: heroes.MeridianServicesHero1,
-  servicesDetails: heroes.MeridianServicesDetailHero1,
-  visaPassport: heroes.MeridianVisaHero1,
-  blog: heroes.MeridianBlogHero1,
-  blogDetails: heroes.MeridianBlogDetailHero1,
-  contact: heroes.MeridianContactHero1,
-  privacyPolicy: heroes.MeridianPrivacyHero1,
-  terms: heroes.MeridianTermsHero1,
+  about: heroes.DiplomaticaAboutHero1,
+  services: heroes.DiplomaticaServicesHero1,
+  servicesDetails: heroes.DiplomaticaServicesDetailHero1,
+  visaPassport: heroes.DiplomaticaVisaHero1,
+  blog: heroes.DiplomaticaBlogHero1,
+  blogDetails: heroes.DiplomaticaBlogDetailHero1,
+  contact: heroes.DiplomaticaContactHero1,
+  privacyPolicy: heroes.DiplomaticaPrivacyHero1,
+  terms: heroes.DiplomaticaTermsHero1,
 };
 
 export const legalPages: { privacy: LegalContent; terms: LegalContent } = {
-  privacy: sections.Legal.variants.MeridianPrivacy1,
-  terms: sections.Legal.variants.MeridianTerms1,
+  privacy: sections.Legal.variants.DiplomaticaPrivacy1,
+  terms: sections.Legal.variants.DiplomaticaTerms1,
 };
 
 /* Single page: every top-level page now lives as a section of "/". */
@@ -262,7 +320,9 @@ const sectionAnchors: Record<string, string> = {
   "/about": "/#about",
   "/services": "/#services",
   "/visa-passport": "/#visa",
-  "/news-events": "/#news",
+  "/why-choose-us": "/#why-choose-us",
+  "/faq": "/#faq",
+  "/news-events": "/#faq",
   "/contact": "/#contact",
   "/privacy-policy": "/#privacy",
   "/terms": "/#terms",
@@ -274,49 +334,55 @@ const toAnchor = (link: NavLink): NavLink => ({
 });
 
 export const getSite = async (): Promise<SiteData> => ({
-  brand: chrome.MeridianHeader1.brand,
+  brand: chrome.DiplomaticaHeader1.brand,
   bodyBgClass: (rawData as unknown as { theme?: { bodyBgClass?: string } }).theme?.bodyBgClass ?? "bg-[#e5dac9]",
-  nav: chrome.MeridianHeader1.nav.map(toAnchor),
-  cta: toAnchor(chrome.MeridianHeader1.cta),
-  quickLinks: chrome.MeridianFooter1.quickLinks.map(toAnchor),
-  contact: chrome.MeridianFooter1.contact,
-  social: chrome.MeridianFooter1.social as SiteData["social"],
-  legal: chrome.MeridianFooter1.legal.map(toAnchor),
+  nav: chrome.DiplomaticaHeader1.nav.map(toAnchor),
+  cta: toAnchor(chrome.DiplomaticaHeader1.cta),
+  quickLinks: chrome.DiplomaticaFooter1.quickLinks.map(toAnchor),
+  contact: chrome.DiplomaticaFooter1.contact,
+  social: chrome.DiplomaticaFooter1.social as SiteData["social"],
+  legal: chrome.DiplomaticaFooter1.legal.map(toAnchor),
 });
 
 export const getHome = async (): Promise<HomeData> => ({
   hero: {
-    ...heroes.MeridianHomeHero1,
-    button: toAnchor(heroes.MeridianHomeHero1.button),
-    secondaryButton: toAnchor(heroes.MeridianHomeHero1.secondaryButton),
+    ...heroes.DiplomaticaHomeHero1,
+    button: toAnchor(heroes.DiplomaticaHomeHero1.button),
+    secondaryButton: toAnchor(heroes.DiplomaticaHomeHero1.secondaryButton),
   },
-  about: sections.About.variants.MeridianAbout1,
+  about: sections.About.variants.DiplomaticaAbout1,
   services: {
-    ...sections.Services.variants.MeridianHomeServices1,
-    button: toAnchor(sections.Services.variants.MeridianHomeServices1.button),
+    ...sections.Services.variants.DiplomaticaHomeServices1,
+    button: toAnchor(sections.Services.variants.DiplomaticaHomeServices1.button),
   },
-  process: sections.Process.variants.MeridianProcess1.section,
-  testimonials: sections.Testimonials.variants.MeridianTestimonials1.section,
-  cta: sections.Cta.variants.MeridianCta1,
+  process: sections.Process.variants.DiplomaticaProcess1.section,
+  testimonials: sections.Testimonials.variants.DiplomaticaTestimonials1.section,
+  cta: sections.Cta.variants.DiplomaticaCta1,
 });
 
 export const getServices = async (): Promise<ServicesData> =>
-  sections.ServicesPage.variants.MeridianServicesPage1 as ServicesData;
+  sections.ServicesPage.variants.DiplomaticaServicesPage1 as ServicesData;
 
 export const getSteps = async (): Promise<ProcessStep[]> =>
-  sections.Process.variants.MeridianProcess1.steps;
+  sections.Process.variants.DiplomaticaProcess1.steps;
 
 export const getTestimonials = async (): Promise<Testimonial[]> =>
-  sections.Testimonials.variants.MeridianTestimonials1.items;
+  sections.Testimonials.variants.DiplomaticaTestimonials1.items;
 
 export const getServiceDetail = async (): Promise<ServiceDetailData> =>
-  sections.ServiceDetail.variants.MeridianServiceDetail1 as ServiceDetailData;
+  sections.ServiceDetail.variants.DiplomaticaServiceDetail1 as ServiceDetailData;
 
 export const getVisaSections = async (): Promise<VisaSection[]> =>
-  sections.VisaPassport.variants.MeridianVisaPassport1.sections as VisaSection[];
+  sections.VisaPassport.variants.DiplomaticaVisaPassport1.sections as VisaSection[];
+
+export const getWhyChooseUs = async (): Promise<WhyChooseUsData> =>
+  sections.WhyChooseUs.variants.DiplomaticaWhyChooseUs1 as WhyChooseUsData;
+
+export const getFaq = async (): Promise<FaqData> =>
+  sections.Faq.variants.DiplomaticaFaq1 as FaqData;
 
 export const getNews = async (): Promise<NewsPost[]> =>
-  sections.News.variants.MeridianNews1.posts;
+  sections.News.variants.DiplomaticaNews1.posts;
 
 export const getNewsBySlug = async (slug?: string): Promise<NewsPost | undefined> =>
   (await getNews()).find((post) => post.slug === slug);
